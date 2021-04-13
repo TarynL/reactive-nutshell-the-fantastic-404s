@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { FriendList } from "./friends/FriendList"
 import { ArticleList } from "./article/ArticleList";
 import {ArticleForm} from "./article/ArticleForm";
 import {ArticleEditForm} from "./article/ArticleEditForm";
@@ -18,6 +19,7 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/friends">
         {/* Render the component for list of friends */}
+        <FriendList />
       </Route>
       <Route path="/messages">
         {/* Render the component for the messages */}
