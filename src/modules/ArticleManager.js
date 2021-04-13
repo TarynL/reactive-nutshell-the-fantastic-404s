@@ -35,6 +35,16 @@ export const updateArticle = (editedArticle) => {
       body: JSON.stringify(editedArticle)
     }).then(data => data.json());
   }
+
+  export const getRandomId = () => {
+    return fetch(`${remoteURL}/articles`)
+      .then(result => result.json())
+      .then(articles => {
+        const randomIndex = Math.floor(Math.random() * articles.length);
+        const randomAnimal = articles[randomIndex];
+        return randomAnimal.id;
+    });
+  }
   
 
   
