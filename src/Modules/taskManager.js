@@ -46,11 +46,11 @@ const remoteURL = "http://localhost:8088"
     });
   }
 
-  export const getTaskDate = (date) => {
-    return fetch(`${remoteURL}/tasks/${task.date}`)
-      .then(result => result.json())
-      .then(tasks => {
-        const sortDate = tasks.sort((a, b) => a - b)
-        return task.date(a)
-    });
-  }
+//   export const getTaskDate = (date) => {
+//     return fetch(`${remoteURL}/tasks/${task.date}`)
+//       .then(result => result.json())
+//       .then(tasks => {
+//         const sortDate = tasks.sort((a, b) => a - b)
+//         return task.date(a)
+//     });
+//   }
