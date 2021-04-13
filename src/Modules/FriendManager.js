@@ -15,3 +15,7 @@ export const deleteFriend = (id) => {
         method: "DELETE"
     }).then(result => result.json())
 };
+
+export const addFriend = (id) => {
+    return fetch(`${remoteURL}/friends/`)
+};
