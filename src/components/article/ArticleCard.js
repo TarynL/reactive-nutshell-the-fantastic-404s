@@ -14,7 +14,7 @@ export const ArticleCard = ({ article, handleDeleteArticle }) => {
                 </span></h3>
                 <p>Date: {article.date}</p>
                 <p>Synopsis: {article.synopsis}</p>
-                <p>URL: {article.url}</p>
+                <a href = {article.url}>URL: {article.url}</a>
 
                 <button type="button"
                     onClick={() => history.push(`/articles/${article.id}/edit`)}>

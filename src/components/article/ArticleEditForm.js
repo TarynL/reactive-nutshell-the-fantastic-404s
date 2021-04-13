@@ -23,6 +23,7 @@ const updateExistingArticle = evt => {
 
     const editedArticle = {
         id: articleId,
+        date: article.date,
         title: article.title,
         synopsis: article.synopsis,
         url: article.url
@@ -45,7 +46,12 @@ return (
     <>
             <form>
                 <fieldset>
+
                     <div className="formgrid">
+
+                    <label htmlFor="date">Date: </label>
+                        <p>{article.date}</p>
+                        
                     <label htmlFor="title">Article Title: </label>
                         <input
                             type="text"
@@ -56,7 +62,6 @@ return (
                             value={article.title}
                         />
                         
-                    
                         
 
                         <label htmlFor="synopsis">Synopsis: </label>
@@ -77,6 +82,7 @@ return (
                             onChange={handleFieldChange}
                             id="url"
                             value={article.url}
+                            
                         />
                         
                         </div>
