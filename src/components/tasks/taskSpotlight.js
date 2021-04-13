@@ -13,7 +13,7 @@ export const TaskSpotlight = ({taskId}) => {
   return (
     <div className="task-spotlight">
       <div>
-        <h3>{task.name}</h3>
+        <h4>{task.name}</h4>
         <p>{task.date}</p>
       </div>
     </div>
