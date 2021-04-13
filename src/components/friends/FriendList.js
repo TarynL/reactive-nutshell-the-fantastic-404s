@@ -14,13 +14,14 @@ export const FriendList = () => {
 
     const getFriends = () => {
         return getAllFriends().then(friendsFromAPI => {
+            console.log(friendsFromAPI)
             setFriends(friendsFromAPI)
         });
     };
 
     useEffect(() => {
         getFriends();
-    });
+    }, []);
 
     return (
         <>
@@ -33,8 +34,9 @@ export const FriendList = () => {
             <div className="container-cards">
                 {friends.map(friend =>
                 <FriendCard key={friend.id}
-                    friend={friend}
-                    handleDeleteFriend={handleDeleteFriend} />)}
+                friend={friend}
+                handleDeleteFriend={handleDeleteFriend} 
+                user={friend.user} />)}
             </div>
         </>
     )
