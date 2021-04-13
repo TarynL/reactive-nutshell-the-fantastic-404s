@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTaskById } from "../../Modules/taskManager";
+import { getTaskById } from "../../modules/taskManager";
 
 export const TaskSpotlight = ({taskId}) => {
   const [task, setTask] = useState({});
