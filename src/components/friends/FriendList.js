@@ -14,7 +14,7 @@ export const FriendList = () => {
 
     const getFriends = () => {
         return getAllFriends().then(friendsFromAPI => {
-           
+
             setFriends(friendsFromAPI)
         });
     };

@@ -1,1 +1,5 @@
-export const getAllUsers = () => {}
+const remoteURL= "http://localhost:8088"
+
+export const getAllUsers = () => {
+    return fetch(`${remoteURL}/users`).then(result => result.json())
+};
