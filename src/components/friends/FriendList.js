@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FriendCard } from './FriendCard'
 import { useHistory } from 'react-router-dom'
-import { getAllFriends, deleteFriend } from '../modules/FriendManager'
+import { getAllFriends, deleteFriend } from '../../modules/FriendManager'
 
 export const FriendList = () => {
     const [friends, setFriends] = useState([]);
