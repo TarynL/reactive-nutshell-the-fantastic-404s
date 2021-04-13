@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import the components we will need
 import { TaskCard } from './taskCard';
-import { getAllTasks, deleteTask } from '../../Modules/taskManager';
+import { getAllTasks, deleteTask } from '../../modules/taskManager';
 import { useHistory } from "react-router-dom"
 
 export const TaskList = () => {
@@ -28,7 +28,7 @@ export const TaskList = () => {
     <>
     <section className="section-content">
       <button type="button"
-      className="btn"
+      className="button"
       onClick={() => {history.push("/tasks/create")}}>
       Add Task
      </button>

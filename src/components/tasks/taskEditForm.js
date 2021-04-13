@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updateTask, getTaskById} from "../../Modules/taskManager";
+import { updateTask, getTaskById} from "../../modules/taskManager";
 import { useParams, useHistory} from "react-router-dom";
 
 export const TaskEditForm = () => {

@@ -1,7 +1,6 @@
 const remoteURL = "http://localhost:8088"
 
   export const getTaskById = (id) => {
-    //be sure your animals have good data and related to a location and customer
    return fetch(`${remoteURL}/tasks/${id}`)
     .then(response => response.json())
   }
@@ -37,12 +36,21 @@ const remoteURL = "http://localhost:8088"
     }).then((data) => data.json());
   };
 
-  export const getRandomId = () => {
+  export const getTaskId = () => {
     return fetch(`${remoteURL}/tasks`)
       .then(result => result.json())
       .then(tasks => {
         const randomIndex = Math.floor(Math.random() * tasks.length);
         const randomTask = tasks[randomIndex];
         return randomTask.id;
+    });
+  }
+
+  export const getTaskDate = (date) => {
+    return fetch(`${remoteURL}/tasks/${task.date}`)
+      .then(result => result.json())
+      .then(tasks => {
+        const sortDate = tasks.sort((a, b) => a - b)
+        return task.date(a)
     });
   }

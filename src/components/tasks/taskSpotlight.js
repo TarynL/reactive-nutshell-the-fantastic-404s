@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTaskById } from "../../Modules/taskManager";
+import { getTaskById } from "../../modules/taskManager";
 
 export const TaskSpotlight = ({taskId}) => {
   const [task, setTask] = useState({});
@@ -13,7 +13,7 @@ export const TaskSpotlight = ({taskId}) => {
   return (
     <div className="task-spotlight">
       <div>
-        <h3>{task.name}</h3>
+        <h4>{task.name}</h4>
         <p>{task.date}</p>
       </div>
     </div>
