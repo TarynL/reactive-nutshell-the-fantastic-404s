@@ -77,6 +77,7 @@ return (
                             onChange={handleFieldChange}
                             id="url"
                             value={article.url}
+                            
                         />
                         
                         </div>

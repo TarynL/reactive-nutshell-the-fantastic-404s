@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getArticleById } from "../../modules/ArticleManager";
+
 import "./ArticleSpotlight.css";
 
 export const ArticleSpotlight = ({articleId}) => {
@@ -14,11 +15,13 @@ export const ArticleSpotlight = ({articleId}) => {
 
   return (
     <div className="article-spotlight">
-      <img src={require('../article/fantastic.jpeg')} alt="FantasticFour" />
+      
       <div>
-        <h3>{article.title}</h3>
+        <h4>{article.title}</h4>
         <p>{article.synopsis}</p>
-        <p>{article.url}</p>
+        <a href = {article.url}>{article.url}
+         
+          </a>
       </div>
     </div>
   );

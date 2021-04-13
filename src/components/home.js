@@ -3,6 +3,7 @@ import { TaskSpotlight } from "../components/tasks/taskSpotlight"
 import { getRandomId } from "../modules/ArticleManager";
 import { getTaskId } from "../modules/taskManager"
 import "./home.css"
+
 import{ArticleSpotlight} from "../components/article/ArticleSpotlight"
 
 export const Dashboard = () => {
