@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import {ArticleList} from "./article/ArticleList";
 
 export const ApplicationViews = () => {
   return (
@@ -19,6 +20,9 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/events">
         {/* Render the component for the user's events */}
+      </Route>
+      <Route path="/articles">
+        <ArticleList />
       </Route>
     </>
   )
