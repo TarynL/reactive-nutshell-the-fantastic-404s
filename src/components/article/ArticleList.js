@@ -9,7 +9,7 @@ export const ArticleList = () => {
     const history = useHistory();
 
     const getArticles = () => {
-        return getAllArticles()
+        return getAllArticles(sessionStorage.getItem("nutshell_user"))
         .then(articlesFromAPI => {
             setArticles(articlesFromAPI)
         });
