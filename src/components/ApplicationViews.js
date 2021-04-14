@@ -8,6 +8,7 @@ import { TaskList } from "./tasks/taskList";
 import { TaskForm } from "./tasks/taskForm";
 import { TaskEditForm } from "./tasks/taskEditForm"
 import { Dashboard } from "./home"
+import { AddFriendForm } from "./friends/AddFriendForm";
 
 export const ApplicationViews = () => {
   return (
@@ -21,7 +22,9 @@ export const ApplicationViews = () => {
         {/* Render the component for list of friends */}
         <FriendList />
       </Route>
-      
+      <Route path="/friends/addFriends">
+        <AddFriendForm />
+      </Route>
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
