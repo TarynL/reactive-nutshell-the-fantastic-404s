@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { addTask } from '../../modules/taskManager';
+import { addTask } from '../../modules/TaskManager';
 
 export const TaskForm = () => {
 
-	const loggedInUser = sessionStorage.getItem("nutshell_user")
 	const [isLoading, setIsLoading] = useState(false)
 
 	const [task, setTask] = useState({
 		name: "",
 		date: "",
-		userId: loggedInUser,
+		userId: parseInt(sessionStorage.getItem("nutshell_user")),
 		completed: false
 	});
 
@@ -46,7 +45,7 @@ export const TaskForm = () => {
 			<fieldset>
 				<div className="form-group">
 					<label htmlFor="date">Task deadline:</label>
-					<input type="text" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task date" value={task.date} />
+					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task date" value={task.date} />
 				</div>
 			</fieldset>
 			<button className="btn btn-primary"
