@@ -8,6 +8,7 @@ import { TaskList } from "./tasks/taskList";
 import { TaskForm } from "./tasks/taskForm";
 import { TaskEditForm } from "./tasks/taskEditForm"
 import { Dashboard } from "./home"
+import { MessageList } from "./message/MessageList";
 import { GetStatesForSelect } from "./events/EventEntryForm";
 import {EventList} from "./events/EventList"
 
@@ -24,7 +25,7 @@ export const ApplicationViews = () => {
         <FriendList />
       </Route>
       <Route path="/messages">
-        {/* Render the component for the messages */}
+        <MessageList />
       </Route>
       <Route exact path="/articles">
         {/* Render the component for the user's tasks */}
