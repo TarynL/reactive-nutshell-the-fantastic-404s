@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TaskSpotlight } from "../components/tasks/taskSpotlight"
 import { getRandomId } from "../modules/ArticleManager";
-import { getTaskId } from "../modules/taskManager"
+import { getTaskId } from "../modules/TaskManager"
 import "./home.css"
 
 import{ArticleSpotlight} from "../components/article/ArticleSpotlight"

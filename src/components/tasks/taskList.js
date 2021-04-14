@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-//import the components we will need
 import { TaskCard } from './taskCard';
-import { getAllTasks, deleteTask } from '../../modules/taskManager';
+import { getTaskByUserId, deleteTask, completeTask } from '../../modules/TaskManager';
 import { useHistory } from "react-router-dom"
 
 export const TaskList = () => {
@@ -9,20 +8,34 @@ export const TaskList = () => {
   const history = useHistory();
 
 
-  const getTasks = () => {
-    return getAllTasks().then(tasksFromAPI => {
-      setTask(tasksFromAPI)
-    });
-  };
+  // const getTasks = () => {
+  //   return getAllTasks().then(tasksFromAPI => {
+  //     setTask(tasksFromAPI)
+  //   });
+  // };
+
+  const loggedInUser = sessionStorage.getItem("nutshell_user")
+    const getLoggedInTasks = () => {
+    return getTaskByUserId(loggedInUser)
+    .then(tasks => {
+        setTask(tasks)
+    })
+}
 
   const handleDeleteTask = id => {
     deleteTask(id)
-    .then(() => getTasks());
+    .then(() => getLoggedInTasks());
+  };
+
+  const handleCompleteTask = id => {
+    completeTask(id)
+    .then(() => getLoggedInTasks());
   };
 
   useEffect(() => {
-    getTasks();
+    getLoggedInTasks();
   }, []);
+
 
   return (
     <>
@@ -41,6 +54,7 @@ export const TaskList = () => {
             key={task.id} 
             task={task} 
             handleDeleteTask={handleDeleteTask}
+            handleCompleteTask={handleCompleteTask}
             />)}
     </div>
     </>
