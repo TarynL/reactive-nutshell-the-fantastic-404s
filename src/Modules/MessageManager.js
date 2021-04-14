@@ -7,8 +7,8 @@ export const getAllMessages = () => {
     .then(result => result.json())
 };
 
-export const getMessageById = (id) => {
-    return fetch (`${remoteURL}/messages/${id}?_expand=user`)
+export const getMessageById = (userId) => {
+    return fetch (`${remoteURL}/messages?userId=${userId}&_expand=user`)
     .then(res => res.json())
 }
 

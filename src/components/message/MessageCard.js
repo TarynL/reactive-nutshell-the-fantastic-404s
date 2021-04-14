@@ -7,22 +7,23 @@ import {useParams} from "react-router-dom";
 
 export const MessageCard = () => {
  const [message, setMessages] = useState({});
- const {messageId} = useParams();
+ const {userId} = useParams();
 
  useEffect(() => {
-     getMessageById(messageId)
+     getMessageById(userId)
+     
      .then(message =>{
      setMessages({
-         userId: message.userId,
+         userId: userId,
          message: message.message
      });
     })
- },[messageId]);
+ },[userId]);
 
     return (
         <div className="messages">
             <div className="message-content">
-                <h3>From: {message.userId?.name}</h3>
+                <h3>From: {message.user?.name}</h3>
                 <p>Message: {message.message}</p>
 
             </div>
