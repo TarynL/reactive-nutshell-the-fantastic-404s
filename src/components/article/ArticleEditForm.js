@@ -26,6 +26,7 @@ export const ArticleEditForm = () => {
             date: article.date,
             title: article.title,
             synopsis: article.synopsis,
+            image: article.image,
             url: article.url
         };
 
@@ -89,6 +90,17 @@ export const ArticleEditForm = () => {
                             onChange={handleFieldChange}
                             id="url"
                             value={article.url}
+
+                        />
+
+                        <label htmlFor="image">Image: </label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="image"
+                            value={article.image}
 
                         />
 

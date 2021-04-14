@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {addArticle} from '../../modules/ArticleManager';
 import './ArticleCard.css';
@@ -8,6 +8,7 @@ export const ArticleForm = () => {
         title: "",
         date: "",
         synopsis: "",
+        image: "",
         url: ""
     });
 
@@ -22,8 +23,9 @@ export const ArticleForm = () => {
 
     const handleClickSaveArticle = (event) => {
         event.preventDefault()
+        setIsLoading(true);
         addArticle(article)
-        .then(() => history.push("./articles"))
+        .then(() => history.push("/articles"))
     }
 
     return (
@@ -56,8 +58,14 @@ export const ArticleForm = () => {
 					<input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article URL" value={article.url} />
 				</div>
 			</fieldset>
+            <fieldset>
+				<div className="form-group">
+					<label htmlFor="image">Article Image:</label>
+					<input type="text" id="image" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article image" value={article.image} />
+				</div>
+			</fieldset>
 
-            <button className="btn btn-primary"
+            <button className="btn btn-primary" disabled={isLoading}
 				onClick={handleClickSaveArticle}>
 				Save Article
           </button>
