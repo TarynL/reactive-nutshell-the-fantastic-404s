@@ -8,6 +8,7 @@ import { TaskList } from "./tasks/taskList";
 import { TaskForm } from "./tasks/taskForm";
 import { TaskEditForm } from "./tasks/taskEditForm"
 import { Dashboard } from "./home"
+import { GetStatesForSelect } from "./events/EventEntryForm";
 
 export const ApplicationViews = () => {
   return (
@@ -37,10 +38,13 @@ export const ApplicationViews = () => {
       <Route path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
-      <Route path="/events">
-        {/* Render the component for the user's events */}
-      </Route>
+      <Route exact path="/events">
 
+      </Route>
+      <Route path="/events/create">
+        //TODO: replace with events from JSON server
+        <GetStatesForSelect />
+      </Route>
       <Route exact path="/articles">
         <ArticleList />
       </Route>
