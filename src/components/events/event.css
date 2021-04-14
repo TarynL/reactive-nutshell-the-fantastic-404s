@@ -1,0 +1,26 @@
+#eventForm {
+    border: 3px solid black;
+    width: fit-content;
+    display: flex;
+}
+#eventName {
+    align-content: flex-end;
+}
+
+#eventLocation{
+    align-content: flex-end;
+}
+
+#eventDate {
+    float: right;
+}
+#eventName1{
+    flex-basis: 60%;
+    float: right;
+}
+
+form button {
+    float:right;
+    padding:0 1em 0 1em;
+    margin-right: 40px;
+}

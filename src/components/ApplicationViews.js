@@ -9,6 +9,8 @@ import { TaskForm } from "./tasks/taskForm";
 import { TaskEditForm } from "./tasks/taskEditForm"
 import { Dashboard } from "./home"
 import { AddFriendForm } from "./friends/AddFriendForm";
+import { GetStatesForSelect } from "./events/EventEntryForm";
+import {EventList} from "./events/EventList"
 
 export const ApplicationViews = () => {
   return (
@@ -41,10 +43,12 @@ export const ApplicationViews = () => {
       <Route path="/tasks/:taskId(\d+)/edit">
         <TaskEditForm />
       </Route>
-      <Route path="/events">
-        {/* Render the component for the user's events */}
+      <Route exact path="/events">
+        <EventList />
       </Route>
-
+      <Route path="/events/create">
+        <GetStatesForSelect />
+      </Route>
       <Route exact path="/articles">
         <ArticleList />
       </Route>
