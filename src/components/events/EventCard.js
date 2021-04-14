@@ -2,8 +2,13 @@ import React from "react"
 
 import { Link } from "react-router-dom";
 
-export const EventCard = ({ event}) => {
+export const EventCard = ({ event, handleDeleteEvent}) => {
 
+  const handleDeleteClick = (event) =>{
+    let eventDelete = event.target.id.split("__")[1]
+    console.log(eventDelete.split("__")[1])
+    handleDeleteEvent(eventDelete)
+  }
   return (
     <div className="card">
       <div className="card-content">
@@ -17,7 +22,7 @@ export const EventCard = ({ event}) => {
         <button>
           Edit
         </button>
-        <button>
+        <button id={"deleteId__"+event.id} onClick={handleDeleteClick}>
           Delete
         </button>
         </section>
