@@ -4,10 +4,14 @@ import { addTask } from '../../modules/taskManager';
 
 export const TaskForm = () => {
 
+	const loggedInUser = sessionStorage.getItem("nutshell_user")
+	const [isLoading, setIsLoading] = useState(false)
+
 	const [task, setTask] = useState({
 		name: "",
 		date: "",
-		location: ""
+		userId: loggedInUser,
+		completed: false
 	});
 
 	const history = useHistory();
@@ -23,15 +27,12 @@ export const TaskForm = () => {
 	}
 
 	const handleClickSaveTask = (event) => {
-		event.preventDefault() 
-
-		if (task.name === 0) {
-			window.alert("Please enter task name")
-		} else {
-			addTask(task)
-				.then(() => history.push("/tasks"))
-		}
-	}
+        event.preventDefault()
+        setIsLoading(true)
+        console.log(task)
+        addTask(task)
+        .then(() => history.push("/tasks"))
+   }
 
 	return (
 		<form className="taskForm">
@@ -49,7 +50,8 @@ export const TaskForm = () => {
 				</div>
 			</fieldset>
 			<button className="btn btn-primary"
-				onClick={handleClickSaveTask}>
+				onClick={handleClickSaveTask} 
+				disabled={isLoading}>
 				Save Task
           </button>
 		</form>

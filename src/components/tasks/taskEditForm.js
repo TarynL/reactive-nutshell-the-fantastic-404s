@@ -29,7 +29,8 @@ export const TaskEditForm = () => {
       id: taskId,
       userId: task.userId,
       name: task.name,
-      date: task.date
+      date: task.date,
+      completed: task.completed
     };
 
     updateTask(editedTask)

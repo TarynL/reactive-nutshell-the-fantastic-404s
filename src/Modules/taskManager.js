@@ -5,6 +5,11 @@ const remoteURL = "http://localhost:8088"
     .then(response => response.json())
   }
 
+  export const getTaskByUserId = (userId) => {
+    return fetch(`${remoteURL}/tasks?userId${userId}&_expand=user`)
+     .then(response => response.json())
+   }
+
   export const getAllTasks = () => {
     return fetch(`${remoteURL}/tasks`)
     .then(response => response.json())
@@ -15,6 +20,17 @@ const remoteURL = "http://localhost:8088"
       method: "DELETE"
     }).then(response => response.json())
   }
+
+  export const completeTask = (completedTask) => {
+    completedTask.completed = true
+    return fetch(`${remoteURL}/tasks/${completedTask.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(completedTask),
+      }).then((data) => data.json());
+    };
 
   export const addTask = (newTask) => {
     return fetch(`${remoteURL}/tasks`, {
