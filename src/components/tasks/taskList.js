@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import the components we will need
 import { TaskCard } from './taskCard';
 import { getTaskByUserId, deleteTask, completeTask } from '../../modules/TaskManager';
 import { useHistory } from "react-router-dom"
