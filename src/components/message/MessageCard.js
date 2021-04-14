@@ -1,24 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import "./MessageCard.css";
-import {getMessageById} from "../../modules/MessageManager"
-import {useParams} from "react-router-dom";
 
 
 
-export const MessageCard = () => {
- const [message, setMessages] = useState({});
- const {userId} = useParams();
 
- useEffect(() => {
-     getMessageById(userId)
-     
-     .then(message =>{
-     setMessages({
-         userId: userId,
-         message: message.message
-     });
-    })
- },[userId]);
+export const MessageCard = ({message}) => {
+ 
 
     return (
         <div className="messages">
