@@ -84,7 +84,7 @@ export const GetStatesForSelect = () => {
                 </div>
                 <fieldset>
                     <label form="eventDate">Event Date </label>
-                    <input type="date" name="eventDate" id="eventDate" />
+                    <input type="datetime-local" name="eventDate" id="eventDate" />
                 </fieldset>
                 <div id="eventLocation">
                     <fieldset>

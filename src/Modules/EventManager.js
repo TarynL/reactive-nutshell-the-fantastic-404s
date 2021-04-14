@@ -5,11 +5,8 @@ export const getEventsForUser = (userId) => {
 }
 
 export const deleteEventById = (id) =>{
-    return fetch(`http://localhost:8088/events?id=${id}`,{
-        method:"DELETE",
-        headers: {
-            "Conent-Type":"application/json"
-        }
+    return fetch(`http://localhost:8088/events/${id}`,{
+        method:"DELETE"
 
     }).then(res => res.json())
 }
