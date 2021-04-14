@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updateTask, getTaskById} from "../../modules/taskManager";
+import { updateTask, getTaskById} from "../../modules/TaskManager";
 import { useParams, useHistory} from "react-router-dom";
 
 export const TaskEditForm = () => {
@@ -29,7 +29,8 @@ export const TaskEditForm = () => {
       id: taskId,
       userId: task.userId,
       name: task.name,
-      date: task.date
+      date: task.date,
+      completed: task.completed
     };
 
     updateTask(editedTask)
@@ -60,7 +61,7 @@ export const TaskEditForm = () => {
             <label htmlFor="name">Task name</label>
 
             <input
-              type="text"
+              type="date"
               required
               className="form-control"
               onChange={handleFieldChange}

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { addTask } from '../../modules/taskManager';
+import { addTask } from '../../modules/TaskManager';
 
 export const TaskForm = () => {
+
+	const [isLoading, setIsLoading] = useState(false)
 
 	const [task, setTask] = useState({
 		name: "",
 		date: "",
-		location: ""
+		userId: parseInt(sessionStorage.getItem("nutshell_user")),
+		completed: false
 	});
 
 	const history = useHistory();
@@ -23,15 +26,12 @@ export const TaskForm = () => {
 	}
 
 	const handleClickSaveTask = (event) => {
-		event.preventDefault() 
-
-		if (task.name === 0) {
-			window.alert("Please enter task name")
-		} else {
-			addTask(task)
-				.then(() => history.push("/tasks"))
-		}
-	}
+        event.preventDefault()
+        setIsLoading(true)
+        console.log(task)
+        addTask(task)
+        .then(() => history.push("/tasks"))
+   }
 
 	return (
 		<form className="taskForm">
@@ -45,11 +45,12 @@ export const TaskForm = () => {
 			<fieldset>
 				<div className="form-group">
 					<label htmlFor="date">Task deadline:</label>
-					<input type="text" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task date" value={task.date} />
+					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task date" value={task.date} />
 				</div>
 			</fieldset>
 			<button className="btn btn-primary"
-				onClick={handleClickSaveTask}>
+				onClick={handleClickSaveTask} 
+				disabled={isLoading}>
 				Save Task
           </button>
 		</form>
