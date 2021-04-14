@@ -12,13 +12,13 @@ export const EventList = () => {
     useEffect(() => {
         getEvents();
     }, [])
-
+    //Delete event by event id, then get all events and render
     const handleDeleteEvent = id => {
         deleteEventById(id).then(getEvents()).then(setEvent)
     }
 
 
-
+    // Check if any events exist for the user, if none then return nothing
     return ( events.length > 0?<>
         {events.map(event => {
             return <EventCard key={event.id} event={event} handleDeleteEvent={handleDeleteEvent} />
