@@ -8,7 +8,7 @@ export const EventList = () => {
 
 
     const getEvents = () => {
-        return getEventsForUser(1).then(eventsFromApi => { setEvent(eventsFromApi) })
+        return getEventsForUser(sessionStorage.getItem("nutshell_user")).then(eventsFromApi => { setEvent(eventsFromApi) })
     }
     useEffect(() => {
         getEvents();
