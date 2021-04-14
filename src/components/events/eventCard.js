@@ -1,20 +1,18 @@
 import React from "react"
-import "./task.css"
+
 import { Link } from "react-router-dom";
 
-export const TaskCard = ({ task, handleDeleteEvent }) => {
+export const EventCard = ({ event}) => {
 
   return (
     <div className="card">
       <div className="card-content">
-        <h3>Name: <span className="card-taskName">{task.name}</span></h3>
-        <p>Deadline: {task.date}</p>
-        <Link to={`/tasks/${task.id}/edit`}>
-          <button>Edit</button>
-          </Link>
-        {/* <label>Complete: <input name="complete" type="checkbox" checked={this.isComplete} onChange={this.handleInputChange} />
-            </label>         */}
-        <button type="button" onClick={() => handleDeleteTask(task.id)}>Delete</button>
+        <h3>Name: <span className="card-eventName">{event.eventName}</span></h3>
+        <p>Date: {event.date}</p>
+        <h4>Locaiton: {event.location}</h4>
+        <button>
+          Show Weather
+        </button>
       </div>
     </div>
   );

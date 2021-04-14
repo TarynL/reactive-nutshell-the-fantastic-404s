@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import {getEventsForUser} from "../../modules/EventManager"
 import "./event.css"
 const stateNames = [
     "Alabama",
@@ -77,19 +78,19 @@ export const GetStatesForSelect = () => {
             <form action="">
                 <div id="eventName">
                     <fieldset>
-                        <label for="eventName">Event Name</label>
+                        <label form="eventName">Event Name</label>
                         <input type="text" id="eventName1"></input>
                     </fieldset>
                 </div>
                 <fieldset>
-                    <label for="eventDate">Event Date </label>
+                    <label form="eventDate">Event Date </label>
                     <input type="date" name="eventDate" id="eventDate" />
                 </fieldset>
                 <div id="eventLocation">
                     <fieldset>
-                        <label for="city">City</label>
+                        <label form="city">City</label>
                         <input type="text" name="cityName" id="cityName" />
-                        <label for="state">State</label>
+                        <label form="state">State</label>
                         <select id="state__name" >
                             {selectStates}
                         </select>
