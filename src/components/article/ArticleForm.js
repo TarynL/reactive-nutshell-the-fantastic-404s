@@ -39,7 +39,7 @@ export const ArticleForm = () => {
             <fieldset>
 				<div className="form-group">
 					<label htmlFor="date">Article Date:</label>
-					<input type="shortdate" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="article date" value={article.date} />
+					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="article date" value={article.date} />
 				</div>
 			</fieldset>
 
