@@ -15,15 +15,16 @@ export const MessageList = () => {
         });
     };
 
-    const handleDeleteMessage = id => {
-        deleteMessage(id)
-        .then(() => getMessages());
-      };
-
 
     useEffect(() => {
         getMessages();
     }, []);
+
+    const handleDeleteMessage = (id) => {
+        console.log(id)
+        deleteMessage(id)
+        .then(() => getMessages().then(setMessages));
+      };
 
     return (
         <>
