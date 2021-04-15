@@ -3,3 +3,12 @@
     width: 300px;
 }
 
+.btn {
+    background-color: lightgrey;
+    border: 2px solid #AE4722;
+}
+
+.btn:hover{
+    background-color: #AE4722;
+
+}
