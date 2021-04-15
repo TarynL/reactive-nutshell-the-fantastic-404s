@@ -5,11 +5,14 @@ import { getAllUsers } from '../../modules/UserManager';
 import "./MessageCard.css";
 
 export const MessageForm = () => {
+    var today = new Date(),
+
+    time = today.getHours() + ':' + today.getMinutes()
     const [message, setMessage] = useState({
         userId: parseInt(sessionStorage.getItem("nutshell_user")), 
         receiverId: 0,
         message: "",
-        timestamp: 0
+        currentTime: time
     });
 
     const [users, setUsers] = useState([]);
@@ -18,7 +21,7 @@ export const MessageForm = () => {
 
     const handleControlledInputChange = (evt) => {
         const newMessage = { ...message }
-        let selectedVal = evt.target.valuse
+        let selectedVal = evt.target.value
 
         if (evt.target.id.includes("Id")) {
             selectedVal = parseInt(selectedVal)
