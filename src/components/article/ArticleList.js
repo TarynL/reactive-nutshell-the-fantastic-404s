@@ -20,8 +20,11 @@ export const ArticleList = () => {
       getFriends();
     }, [])
     
-    console.log(friendArray)
+    console.log(friendArray[0].userId)
     
+    const friendUserId = friendArray.map(friend => {return (friend.userId)})
+    console.log(friendUserId)
+
     const getArticles = () => {
       return friendArray.forEach(friend => {
         getAllArticles(friend.userId)
@@ -45,7 +48,7 @@ export const ArticleList = () => {
         <>
          <section className="section-content">
         <button type="button"
-          className="button"
+          className="btn"
           onClick={() => { history.push("/articles/create") }}>
           Add Article
         </button>
