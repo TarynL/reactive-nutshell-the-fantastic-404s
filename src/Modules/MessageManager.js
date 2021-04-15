@@ -26,6 +26,11 @@ export const addMessage = (newMessage) => {
     body: JSON.stringify(newMessage)
   }).then(response => response.json())
 }
+export const getSentMessages = (userId) => {
+    return fetch(`${remoteURL}/messages?userId=${userId}&_expand=user`)
+    .then(result => result.json())
+}
+
 
 export const deleteMessage = (id) => {
   return fetch(`${remoteURL}/messages/${id}`, {
