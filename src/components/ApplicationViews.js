@@ -12,6 +12,7 @@ import { AddFriendForm } from "./friends/AddFriendForm";
 import { MessageList } from "./message/MessageList";
 import { GetStatesForSelect } from "./events/EventEntryForm";
 import {EventList} from "./events/EventList"
+import { MessageForm } from "./message/MessageForm";
 
 export const ApplicationViews = () => {
   return (
@@ -29,7 +30,11 @@ export const ApplicationViews = () => {
         <AddFriendForm />
       </Route>
       <Route path="/messages">
+      <Route exact path="/messages">
         <MessageList />
+      </Route>
+      <Route path="/messages/create">
+        <MessageForm />
       </Route>
       <Route exact path="/articles">
         {/* Render the component for the user's tasks */}
