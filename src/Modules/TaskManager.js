@@ -6,7 +6,7 @@ const remoteURL = "http://localhost:8088"
   }
 
   export const getTaskByUserId = (userId) => {
-    return fetch(`${remoteURL}/tasks?userId=${userId}`)
+    return fetch(`${remoteURL}/tasks?userId=${userId}&_expand=user`)
      .then(response => response.json())
    }
 

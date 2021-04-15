@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { TaskSpotlight } from "../components/tasks/taskSpotlight"
 import { getRandomId } from "../modules/ArticleManager";
-import { getTaskId } from "../modules/TaskManager"
-import "./home.css"
-
-import{ArticleSpotlight} from "../components/article/ArticleSpotlight"
+import { getTaskId } from "../modules/TaskManager";
+import "./home.css";
+import { ArticleSpotlight } from "../components/article/ArticleSpotlight";
+import { MessageList } from "../components/publicMessage/messageList";
 
 export const Dashboard = () => {
   const [taskSpotlightId, setSpotlightId] = useState(0);
   const [articleSpotlightId, setArticleId] = useState(0);
 
-  
+
   const refreshSpotlightTask = () => {
     getTaskId().then(setSpotlightId);
   };
@@ -30,11 +30,12 @@ export const Dashboard = () => {
 
   return (
     <>
-        <div className="title"><h1>Welcome to the 404</h1></div>
+      <div className="title"><h1>Welcome to the 404</h1></div>
+      <div className="dashboard">
         <div className="Highlight">
-             <h3 className="taskHighlight">Upcoming Task</h3>
-            {taskSpotlightId && <TaskSpotlight taskId={taskSpotlightId} />}
-            <button onClick={refreshSpotlightTask}>Next</button>
+          <h3 className="taskHighlight">Upcoming Task</h3>
+          {taskSpotlightId && <TaskSpotlight taskId={taskSpotlightId} />}
+          <button onClick={refreshSpotlightTask}>Next</button>
         </div>
 
         <div className="articleHighlight">
@@ -42,6 +43,12 @@ export const Dashboard = () => {
           {articleSpotlightId && <ArticleSpotlight articleId={articleSpotlightId} />}
           <button onClick={nextSpotlightArticle}>Next</button>
         </div>
-    </>
+
+        <aside className="messageBoard">
+          <h3 className="message">Message Board</h3>
+          <MessageList />
+        </aside>
+      </div>
+      </>
   );
 };

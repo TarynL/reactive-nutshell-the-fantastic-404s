@@ -28,11 +28,10 @@ export const TaskForm = () => {
 	const handleClickSaveTask = (event) => {
         event.preventDefault()
         setIsLoading(true)
-        console.log(task)
         addTask(task)
         .then(() => history.push("/tasks"))
    }
-
+   
 	return (
 		<form className="taskForm">
 			<h2 className="taskForm__title">Add New Task</h2>

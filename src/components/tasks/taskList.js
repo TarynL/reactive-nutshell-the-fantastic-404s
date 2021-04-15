@@ -20,7 +20,7 @@ export const TaskList = () => {
     .then(tasks => {
         setTask(tasks)
     })
-}
+ }
 
   const handleDeleteTask = id => {
     deleteTask(id)
