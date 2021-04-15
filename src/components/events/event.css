@@ -1,3 +1,9 @@
+:root{
+    --num: 255;
+    --blue: 255;
+    --min: rgba(0,0,255,.4);
+    --max: rgba(255,0,0,.4);
+}
 #eventForm {
     border: 3px solid black;
     width: fit-content;
@@ -23,4 +29,29 @@ form button {
     float:right;
     padding:0 1em 0 1em;
     margin-right: 40px;
+}
+
+#weather {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:center;
+    
+}
+.weatherDay{
+    background: rgb(2,0,36);
+    background: linear-gradient(31deg, rgba(2,0,36,.1) 0%, rgba(9,9,121,0.4) 20%, rgba(255,0,70,1) 95%);
+    flex-basis: 18%;
+    border: 3px black solid;
+}
+
+.weatherDateGroup {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.am_pm {
+    font-size: 3em;
+    align-content: right;
 }
