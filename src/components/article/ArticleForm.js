@@ -8,6 +8,7 @@ export const ArticleForm = () => {
         title: "",
         date: "",
         synopsis: "",
+        image: "",
         url: ""
     });
 
@@ -22,8 +23,9 @@ export const ArticleForm = () => {
 
     const handleClickSaveArticle = (event) => {
         event.preventDefault()
+        setIsLoading(true);
         addArticle(article)
-        .then(() => history.push("./articles"))
+        .then(() => history.push("/articles"))
     }
 
     return (
@@ -39,7 +41,7 @@ export const ArticleForm = () => {
             <fieldset>
 				<div className="form-group">
 					<label htmlFor="date">Article Date:</label>
-					<input type="shortdate" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="article date" value={article.date} />
+					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="article date" value={article.date} />
 				</div>
 			</fieldset>
 
@@ -54,6 +56,12 @@ export const ArticleForm = () => {
 				<div className="form-group">
 					<label htmlFor="url">Article URL:</label>
 					<input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article URL" value={article.url} />
+				</div>
+			</fieldset>
+            <fieldset>
+				<div className="form-group">
+					<label htmlFor="image">Article Image:</label>
+					<input type="text" id="image" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article image" value={article.image} />
 				</div>
 			</fieldset>
 
