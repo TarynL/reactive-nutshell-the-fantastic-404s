@@ -7,6 +7,16 @@ export const getAllMessages = () => {
     .then(result => result.json())
 };
 
+export const addMessage = (newMessage) => {
+    return fetch(`${remoteURL}/messages`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newMessage)
+    }).then(response => response.json())
+}
+
 
 
 
