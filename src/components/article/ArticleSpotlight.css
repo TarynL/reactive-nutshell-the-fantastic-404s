@@ -1,15 +1,20 @@
-.animal-spotlight {
+.article-spotlight {
     max-width: 400px;
     display: flex;
     border: 1px dashed gray;
     padding: 10px;
   }
   
-  .animal-spotlight img {
+  .article-spotlight img {
     width: 200px;
     margin-right: 20px;
   }
   
-  .animal-spotlight p {
+  .article-spotlight p {
     color: black;
+  }
+
+  .articleImage{
+    height: 300px;
+    width: 200px
   }

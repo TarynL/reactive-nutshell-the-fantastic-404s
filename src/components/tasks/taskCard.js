@@ -1,15 +1,16 @@
-import React, { useState } from "react"
+import React from "react"
 import "./task.css"
 import { Link } from "react-router-dom";
+// import { parseDate } from "../../modules/TaskManager"
 
 
 export const TaskCard = ({ task, handleDeleteTask, handleCompleteTask}) => {
-  
+
   return (
     <div className="card" hidden={task.completed}>
       <div className="card-content">
         <h3>Name: <span className="card-taskName">{task.name}</span></h3>
-        <p>Deadline: {task.date}</p>
+        {/* <p>Deadline: {(task.date).toDateString()}</p> */}
         <label>Complete: <input name="complete" type="checkbox" onChange={() => handleCompleteTask(task)} />
             </label>        
         <Link to={`/tasks/${task.id}/edit`}>

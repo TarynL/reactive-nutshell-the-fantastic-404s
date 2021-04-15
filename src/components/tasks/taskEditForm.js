@@ -50,6 +50,8 @@ export const TaskEditForm = () => {
       <form>
         <fieldset>
           <div className="formgrid">
+
+            <label htmlFor="name">Task name:</label>
             <input
               type="text"
               required
@@ -58,8 +60,8 @@ export const TaskEditForm = () => {
               id="name"
               value={task.name}
             />
-            <label htmlFor="name">Task name</label>
-
+            
+            <label htmlFor="date">Deadline:</label>
             <input
               type="date"
               required
@@ -68,7 +70,6 @@ export const TaskEditForm = () => {
               id="date"
               value={task.date}
             />
-            <label htmlFor="date">Deadline</label>
 
           </div>
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {addArticle} from '../../modules/ArticleManager';
 import './ArticleCard.css';
@@ -57,7 +57,14 @@ export const ArticleForm = () => {
 				</div>
 			</fieldset>
 
-            <button className="btn btn-primary"
+            <fieldset>
+				<div className="form-group">
+					<label htmlFor="url">Article Image:</label>
+					<input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article URL" value={article.image} />
+				</div>
+			</fieldset>
+
+            <button className="button btn-primary"
 				onClick={handleClickSaveArticle}>
 				Save Article
           </button>
