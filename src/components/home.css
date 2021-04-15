@@ -7,3 +7,12 @@
     border: 2px solid #AE4722;
     width: 300px;
 }
+
+.messageBoard{
+    border: 2px solid #AE4722;
+    width: 300px; 
+}
+
+.dashboard{
+    display: flex;
+}
