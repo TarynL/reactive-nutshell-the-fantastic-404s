@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { deleteEventById, getEventsForUser } from "../../modules/EventManager"
 import { EventCard } from "./EventCard"
-import { Link } from "react-router-dom";
 
 export const EventList = () => {
     const [events, setEvent] = useState([])
@@ -19,12 +19,14 @@ export const EventList = () => {
 
 
     // Check if any events exist for the user, if none then return nothing
-    return ( events.length > 0?<>
-        {events.map(event => {
-            return <EventCard key={event.id} event={event} handleDeleteEvent={handleDeleteEvent} />
-        })}
-
-
-    </>:"")
+    return ( <>
+        <Link to="/events/create"><button>Create Event</button></Link>  {events.length > 0?
+            events.map(event => {
+                return <EventCard 
+                key={event.id} 
+                event={event} 
+                handleDeleteEvent={handleDeleteEvent} />
+            })
+        :""}</>)
 
 }
