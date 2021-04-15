@@ -50,25 +50,25 @@ export const TaskEditForm = () => {
       <form>
         <fieldset>
           <div className="formgrid">
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="name"
-              value={task.name}
-            />
-            <label htmlFor="name">Task name</label>
+            <label htmlFor="name">Task name:</label>
+              <input
+                type="text"
+                required
+                className="form-control"
+                onChange={handleFieldChange}
+                id="name"
+                value={task.name}
+              />
 
-            <input
-              type="date"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="date"
-              value={task.date}
-            />
-            <label htmlFor="date">Deadline</label>
+            <label htmlFor="date">Deadline:</label>
+              <input
+                type="date"
+                required
+                className="form-control"
+                onChange={handleFieldChange}
+                id="date"
+                value={task.date}
+              />
 
           </div>
 
