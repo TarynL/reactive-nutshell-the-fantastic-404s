@@ -1,38 +1,71 @@
 import React, { useState, useEffect} from 'react';
 import {ArticleCard} from './ArticleCard';
-import {getAllArticles, deleteArticle}  from '../../modules/ArticleManager';
+import {getAllArticles, deleteArticle, getArticlesByUserId}  from '../../modules/ArticleManager';
 import {useHistory} from 'react-router-dom';
 import { getAllFriends, getFriendsById } from '../../modules/FriendManager';
 
-export const ArticleList = () => {
-  console.log(getAllFriends())
 
-    
+
+export const ArticleList = () => {
+  
+
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
     
     const [friendArray, setFriendArray] = useState([]);
     const [articles, setArticles] = useState([]);
     const history = useHistory();
     
     const getFriends = () => {
-      return getAllFriends().then(friendsFromAPI => {setFriendArray(friendsFromAPI)})
+      return getAllFriends(currentUserId).then(friendsFromAPI => {setFriendArray(friendsFromAPI)})
     }
     useEffect (() => {
       getFriends();
     }, [])
     
-    console.log(friendArray[0].userId)
     
-    const friendUserId = friendArray.map(friend => {return (friend.userId)})
-    console.log(friendUserId)
+   I need to loop over friendArray, and call getArticlesByUserId for each 
+
+    // // let articleArray = []
+    // // const createAllArticlesArray = () => { 
+    //   const friendUserIds = friendArray.map(friend => {return (friend.userId)})
+    //   friendUserIds.push(currentUserId)
+     
+   
+
+    // const prepareArticles = () => {
+    //   let newArray = []
+    //   return friendUserIds.forEach(friend => {
+    //     getArticlesByUserId(friend).then(result => {return result})
+    //   })
+      
+    // }
+    // useEffect (() => {
+    //   prepareArticles()
+    //   console.log(prepareArticles())
+    // }, []);
+
+    //   const combinedArray = friendUserId.concat(currentUserId)
+    //   console.log(combinedArray)
+
+    //   let newArray = combinedArray.map(user => {getAllArticles(user)
+    // .then(result => { console.log(result) 
+    //   return result})
+    //   .then()
+    // })};
+    // createAllArticlesArray()
+    // console.log(newArray)
+
+
+    // return (articleArray.push(result)) 
+
 
     const getArticles = () => {
-      return friendArray.forEach(friend => {
-        getAllArticles(friend.userId)
+      return getArticlesByUserId(currentUserId)
        
       .then(articlesFromAPI => {
         setArticles(articlesFromAPI)
-      })});
-    };
+      })}
+    
     
     useEffect (() => {
         getArticles();

@@ -9,7 +9,8 @@ export const ArticleForm = () => {
         date: "",
         synopsis: "",
         image: "",
-        url: ""
+        url: "",
+        userId: parseInt(sessionStorage.getItem("nutshell_user"))
     });
 
     const [isLoading, setIsLoading] = useState(false);

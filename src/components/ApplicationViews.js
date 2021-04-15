@@ -29,7 +29,7 @@ export const ApplicationViews = () => {
       <Route path="/friends/addFriends">
         <AddFriendForm />
       </Route>
-      <Route path="/messages">
+      
       <Route exact path="/messages">
         <MessageList />
       </Route>

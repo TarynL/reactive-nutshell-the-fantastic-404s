@@ -5,9 +5,8 @@ export const getArticleById = (id) => {
     .then(res => res.json())
 }
 
-export const getArticleByUserId = ([userId]) => {
-  return ( userId.forEach(user => {fetch (`${remoteURL}/articles?userId=${user}`).then(res => res.json())}))
-}
+export const getArticlesByUserId = (userId) => {
+  return fetch (`${remoteURL}/articles?userId=${userId}`).then(res => res.json())}
 
 export const getAllArticles = (userId) => {
     return fetch(`${remoteURL}/articles?userId=${userId}`)
