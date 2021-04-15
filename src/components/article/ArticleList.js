@@ -20,7 +20,7 @@ export const ArticleList = () => {
       getFriends();
     }, [])
     
-    
+    console.log(friendArray)
     
     const getArticles = () => {
       return friendArray.forEach(friend => {
