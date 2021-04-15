@@ -1,33 +1,42 @@
-import React, { useState, useEffect} from 'react';
-import {ArticleCard} from './ArticleCard';
-import {getAllArticles, deleteArticle}  from '../../modules/ArticleManager';
-import {useHistory} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { ArticleCard } from './ArticleCard';
+import { getAllArticles, deleteArticle } from '../../modules/ArticleManager';
+import { useHistory } from 'react-router-dom';
 
 export const ArticleList = () => {
 
-    const [articles, setArticles] = useState([]);
-    const history = useHistory();
+  const [articles, setArticles] = useState([]);
+  const history = useHistory();
+  const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
+  
 
-    const getArticles = () => {
-        return getAllArticles()
-        .then(articlesFromAPI => {
-            setArticles(articlesFromAPI)
-        });
-    };
+  const getArticles = () => {
+    return getAllArticles()
+      .then(articlesFromAPI => {
+        setArticles(articlesFromAPI)
+      });
+  };
 
-    useEffect (() => {
-        getArticles();
+  useEffect(() => {
+    getArticles();
     }, []);
 
-    const handleDeleteArticle = (id) => {
-        deleteArticle(id)
-        .then(() => getAllArticles()
-        .then(setArticles));
-    };
+  
 
-    return (
-        <>
-         <section className="section-content">
+  const handleDeleteArticle = (id) => {
+    deleteArticle(id)
+      .then(() => getAllArticles()
+        .then(setArticles));
+  };
+
+  
+  
+
+
+
+  return (
+    <>
+      <section className="section-content">
         <button type="button"
           className="button"
           onClick={() => { history.push("/articles/create") }}>
@@ -40,9 +49,10 @@ export const ArticleList = () => {
           <ArticleCard
             key={article.id}
             article={article}
-            handleDeleteArticle={handleDeleteArticle} />)}
+            handleDeleteArticle={handleDeleteArticle}
+            loggedInUser={loggedInUser} />).reverse()}
       </div>
-        
-        </>
-    )
+
+    </>
+  )
 }
