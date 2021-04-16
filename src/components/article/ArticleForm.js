@@ -66,7 +66,14 @@ export const ArticleForm = () => {
 				</div>
 			</fieldset>
 
-            <button className="btn btn-primary" disabled={isLoading}
+            <fieldset>
+				<div className="form-group">
+					<label htmlFor="url">Article Image:</label>
+					<input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article URL" value={article.image} />
+				</div>
+			</fieldset>
+
+            <button className="button btn-primary"
 				onClick={handleClickSaveArticle}>
 				Save Article
           </button>

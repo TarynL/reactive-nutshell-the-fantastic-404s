@@ -13,7 +13,8 @@ import { MessageList } from "./message/MessageList";
 import { GetStatesForSelect } from "./events/EventEntryForm";
 import {EventList} from "./events/EventList"
 import { MessageForm } from "./message/MessageForm";
-
+import { PublicMessageForm } from "./publicMessage/messageForm"
+import { PublicMessageEditForm } from "./publicMessage/messageEditForm"
 export const ApplicationViews = () => {
   return (
     <>
@@ -35,6 +36,12 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/messages/create">
         <MessageForm />
+      </Route>
+      <Route path="/messages/public/create">
+        <PublicMessageForm />
+      </Route>
+      <Route path="/messages/public/:messageId(\d+)/edit">
+        <PublicMessageEditForm />
       </Route>
       <Route exact path="/articles">
         {/* Render the component for the user's tasks */}

@@ -69,17 +69,38 @@ export const ArticleList = () => {
     
     useEffect (() => {
         getArticles();
+  const [articles, setArticles] = useState([]);
+  const history = useHistory();
+  const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
+  
+
+  const getArticles = () => {
+    return getAllArticles()
+      .then(articlesFromAPI => {
+        setArticles(articlesFromAPI)
+      });
+  };
+
+  useEffect(() => {
+    getArticles();
     }, []);
 
-    const handleDeleteArticle = (id) => {
-        deleteArticle(id)
-        .then(() => getAllArticles()
-        .then(setArticles));
-    };
+  
 
-    return (
-        <>
-         <section className="section-content">
+  const handleDeleteArticle = (id) => {
+    deleteArticle(id)
+      .then(() => getAllArticles()
+        .then(setArticles));
+  };
+
+  
+  
+
+
+
+  return (
+    <>
+      <section className="section-content">
         <button type="button"
           className="btn"
           onClick={() => { history.push("/articles/create") }}>
@@ -92,9 +113,10 @@ export const ArticleList = () => {
           <ArticleCard
             key={article.id}
             article={article}
-            handleDeleteArticle={handleDeleteArticle} />)}
+            handleDeleteArticle={handleDeleteArticle}
+            loggedInUser={loggedInUser} />).reverse()}
       </div>
-        
-        </>
-    )
+
+    </>
+  )
 }

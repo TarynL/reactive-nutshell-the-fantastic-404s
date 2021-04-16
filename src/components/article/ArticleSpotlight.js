@@ -18,8 +18,8 @@ export const ArticleSpotlight = ({articleId}) => {
       
       <div>
         <h4>{article.title}</h4>
-        <div><img className="postImage" src={article.image} alt="article image"/></div>
         <p>{article.date}</p>
+        <img className="articleImage" src={article.image} alt="spotlight article"/>
         <p>{article.synopsis}</p>
         <a href = {article.url}>{article.url}
          </a>
