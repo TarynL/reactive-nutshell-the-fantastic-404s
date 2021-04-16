@@ -33,7 +33,7 @@ const history = useHistory();
           <Link className="nav-link" to="/events">Events</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" onClick={handleLogout}> Logout </Link>
+          <button className="nav-link" onClick={handleLogout}> Logout </button>
         </li>
       </ul>
     </nav>
