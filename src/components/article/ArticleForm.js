@@ -4,12 +4,14 @@ import {addArticle} from '../../modules/ArticleManager';
 import './ArticleCard.css';
 
 export const ArticleForm = () => {
+	const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
     const [article, setArticle] = useState({
         title: "",
-        date: "",
+        timestamp: Date.now(),
         synopsis: "",
         image: "",
-        url: ""
+        url: "",
+		userId: loggedInUser
     });
 
     const [isLoading, setIsLoading] = useState(false);
@@ -38,12 +40,12 @@ export const ArticleForm = () => {
 				</div>
 			</fieldset>
 
-            <fieldset>
+            {/* <fieldset>
 				<div className="form-group">
 					<label htmlFor="date">Article Date:</label>
 					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="article date" value={article.date} />
 				</div>
-			</fieldset>
+			</fieldset> */}
 
             <fieldset>
 				<div className="form-group">
@@ -65,12 +67,7 @@ export const ArticleForm = () => {
 				</div>
 			</fieldset>
 
-            <fieldset>
-				<div className="form-group">
-					<label htmlFor="url">Article Image:</label>
-					<input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article URL" value={article.image} />
-				</div>
-			</fieldset>
+           
 
             <button className="button btn-primary"
 				onClick={handleClickSaveArticle}>
