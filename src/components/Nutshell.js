@@ -4,6 +4,7 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { Footer } from "./nav/footer"
 import "./Nutshell.css"
 
 export const Nutshell = () => (
@@ -16,6 +17,7 @@ export const Nutshell = () => (
             <>
               <NavBar />
               <ApplicationViews />
+              <Footer />
             </>
           )
         } else {
