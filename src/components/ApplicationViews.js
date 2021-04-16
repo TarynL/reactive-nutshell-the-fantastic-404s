@@ -12,6 +12,7 @@ import { MessageList } from "./message/MessageList";
 import { GetStatesForSelect } from "./events/EventEntryForm";
 import {EventList} from "./events/EventList"
 import { MessageForm } from "./message/MessageForm";
+import {PrivateMessageEditForm} from "./message/MessageEditForm"
 import { PublicMessageForm } from "./publicMessage/messageForm"
 import { PublicMessageEditForm } from "./publicMessage/messageEditForm"
 export const ApplicationViews = () => {
@@ -31,6 +32,9 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/messages/create">
         <MessageForm />
+      </Route>
+      <Route path="/messages/:messageId(\d+)/edit">
+        <PrivateMessageEditForm />
       </Route>
       <Route path="/messages/public/create">
         <PublicMessageForm />

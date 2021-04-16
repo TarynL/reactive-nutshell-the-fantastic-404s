@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 
 export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
     const history = useHistory();
-
+    let currentTimestamp = Date.now()
+    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(currentTimestamp)
     return (
         <>
             {loggedInUser === article.userId ?
@@ -15,7 +16,7 @@ export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
                         <h3>Article Title: <span className="card-title">
                             {article.title}
                         </span></h3>
-                        <p>Date: {article.date}</p>
+                        <p>Date: {date}</p>
                         <p>Synopsis: {article.synopsis}</p>
                         <a href={article.url}>URL: {article.url}</a>
 
@@ -34,7 +35,7 @@ export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
                         <h3>Article Title: <span className="card-title">
                             {article.title}
                         </span></h3>
-                        <p>Date: {article.date}</p>
+                        <p>Date: {date}</p>
                         <p>Synopsis: {article.synopsis}</p>
                         <a href={article.url}>URL: {article.url}</a>
 

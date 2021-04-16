@@ -48,3 +48,13 @@ export const updatePublicMessage = (editedMessage) => {
     body: JSON.stringify(editedMessage),
   }).then((data) => data.json());
 };
+
+export const updatePrivateMessage = (editedMessage) => {
+    return fetch(`${remoteURL}/messages/${editedMessage.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedMessage),
+    }).then((data) => data.json());
+  };

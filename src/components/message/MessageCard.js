@@ -4,8 +4,9 @@ import "./MessageCard.css";
 
 
 
-export const MessageCard = ({message}) => {
- 
+
+export const MessageCard = ({ message }) => {
+
 
     return (
         <div className="messages">
@@ -13,7 +14,7 @@ export const MessageCard = ({message}) => {
                 <h3>From: {message.user?.name}</h3>
                 <p>{message.currentTime}</p>
                 <p>Message: {message.message}</p>
-
+                
             </div>
 
         </div>
