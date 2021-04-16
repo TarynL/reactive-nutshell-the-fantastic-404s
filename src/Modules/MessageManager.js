@@ -3,7 +3,7 @@ const remoteURL = "http://localhost:8088"
 const currentUser = sessionStorage.getItem("nutshell_user")
 
 export const getAllMessages = () => {
-  return fetch(`${remoteURL}/messages?receiverId=${currentUser}&_expand=user`)
+  return fetch(`${remoteURL}/messages?receiverId=${currentUser}&userId!=0&_expand=user`)
     .then(result => result.json())
 };
 
@@ -48,3 +48,13 @@ export const updatePublicMessage = (editedMessage) => {
     body: JSON.stringify(editedMessage),
   }).then((data) => data.json());
 };
+
+export const updatePrivateMessage = (editedMessage) => {
+    return fetch(`${remoteURL}/messages/${editedMessage.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedMessage),
+    }).then((data) => data.json());
+  };

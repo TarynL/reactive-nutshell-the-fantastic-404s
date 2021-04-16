@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "./MessageCard.css";
 import {getSingleUser} from '../../modules/UserManager'
-
+import { Link } from "react-router-dom";
 
 
 
@@ -23,6 +23,12 @@ useEffect(() => {
                 <h3>Sent to: {recipient.name}</h3>
                 <p>{message.currentTime}</p>
                 <p>Message: {message.message}</p>
+                <Link to={`/messages/${message.id}/edit`}>
+                    <button>Edit</button>
+                </Link>
+               
+                
+
                 
 
             </div>
