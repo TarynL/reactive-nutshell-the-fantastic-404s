@@ -47,7 +47,7 @@ export const ArticleList = () => {
         let newArticlesArray = Promise.all(urlArray).then(responses => {
          responses.forEach(response => response.map(article => {console.log(article)}))
         })
-        console.log(newArticlesArray)
+        
       }
       
       
