@@ -12,12 +12,7 @@ export const PrivateMessageEditForm = () => {
 
   const [recipient, setRecipient] = useState([]);
 
-useEffect(() => {
-    getSingleUser(message.receiverId)
-    .then(user => {
-        setRecipient(user)
-    }, []);
-})
+
 
   const handleFieldChange = (event) => {
     const stateToChange = { ...message };
@@ -38,11 +33,11 @@ useEffect(() => {
     const editedMessage = {
       id: messageId,
       userId:parseInt(sessionStorage.getItem("nutshell_user")),
-      receiverID: message.receiverId,
+      receiverId: message.receiverId,
       message: message.message,
       currentTime: message.currentTime
     };
-
+console.log(editedMessage)
     updatePrivateMessage(editedMessage)
     .then(() => history.push("/messages"));
   };
@@ -54,6 +49,13 @@ useEffect(() => {
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    getSingleUser(message.receiverId)
+    .then(user => {
+        setRecipient(user)
+    }, []);
+})
 
   return (
     <>
