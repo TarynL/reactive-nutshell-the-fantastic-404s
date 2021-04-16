@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { updatePrivateMessage, getMessagesById} from "../../modules/MessageManager";
 import { useParams, useHistory} from "react-router-dom";
+import {getSingleUser} from '../../modules/UserManager';
 
 export const PrivateMessageEditForm = () => {
   const [message, setMessage] = useState({});
@@ -8,6 +9,15 @@ export const PrivateMessageEditForm = () => {
 
   const { messageId } = useParams();
   const history = useHistory();
+
+  const [recipient, setRecipient] = useState([]);
+
+useEffect(() => {
+    getSingleUser(message.receiverId)
+    .then(user => {
+        setRecipient(user)
+    }, []);
+})
 
   const handleFieldChange = (event) => {
     const stateToChange = { ...message };
@@ -48,6 +58,7 @@ export const PrivateMessageEditForm = () => {
   return (
     <>
       <form>
+      <h3>Sent to: {recipient.name}</h3>
         <fieldset>
           <div className="formgrid">
             <label htmlFor="message">Message:</label>

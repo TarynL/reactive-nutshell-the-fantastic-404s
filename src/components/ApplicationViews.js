@@ -30,7 +30,7 @@ export const ApplicationViews = () => {
       <Route exact path="/messages">
         <MessageList />
       </Route>
-      <Route path="/messages/create">
+      <Route exact path="/messages/create">
         <MessageForm />
       </Route>
       <Route path="/messages/:messageId(\d+)/edit">

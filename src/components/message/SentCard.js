@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 
-export const SentCard = ({message}) => {
+export const SentCard = ({message, handleDeleteMessage}) => {
 const [recipient, setRecipient] = useState([]);
 
 useEffect(() => {
@@ -26,6 +26,8 @@ useEffect(() => {
                 <Link to={`/messages/${message.id}/edit`}>
                     <button>Edit</button>
                 </Link>
+                <button type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
+                
 
                 
 

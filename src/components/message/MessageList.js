@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCard } from './MessageCard'
 import {SentCard} from './SentCard'
-import { getAllMessages, getSentMessages } from '../../modules/MessageManager'
+import { getAllMessages, getSentMessages,deleteMessage } from '../../modules/MessageManager'
 
 import { useHistory } from 'react-router-dom';
 import "./MessageCard.css"
@@ -37,6 +37,12 @@ export const MessageList = () => {
     useEffect(() => {
         getLoggedInMessages();
     }, []);
+
+    const handleDeleteMessage = (id) => {
+        deleteMessage(id)
+          .then(() => getAllMessages()
+            .then(setMessages));
+      };
     
     return (
         <>
@@ -53,7 +59,7 @@ export const MessageList = () => {
                     <MessageCard
                         key={message.id}
                         message={message}
-                    />)}
+                    />).reverse()}
             </div>
 
             <div className="container-cards">
@@ -62,7 +68,8 @@ export const MessageList = () => {
                     <SentCard
                         key={sent.id}
                         message={sent}
-                    />)}
+                        handleDeleteMessage={handleDeleteMessage}
+                    />).reverse()}
             </div>
         </>
     )
