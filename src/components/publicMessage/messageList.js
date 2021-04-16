@@ -1,18 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {PublicMessageCard} from './messageCard';
-import {getAllPublicMessages, deleteMessage} from '../../modules/MessageManager';
-import {useHistory} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { PublicMessageCard } from './messageCard';
+import { getAllPublicMessages, deleteMessage } from '../../modules/MessageManager';
+import { useHistory } from 'react-router-dom';
 
 export const MessageList = () => {
 
     const [messages, setMessages] = useState([]);
     const history = useHistory();
+    const currentUserId = JSON.parse(sessionStorage.getItem("nutshell_user"))
 
     const getMessages = () => {
         return getAllPublicMessages()
-        .then(messagesFromAPI => {
-            setMessages(messagesFromAPI)
-        });
+            .then(messagesFromAPI => {
+                setMessages(messagesFromAPI)
+            });
     };
 
 
@@ -21,29 +22,34 @@ export const MessageList = () => {
     }, []);
 
     const handleDeleteMessage = (id) => {
-        console.log(id)
         deleteMessage(id)
-        .then(() => getMessages().then(setMessages));
-      };
+            .then(() => getMessages().then(setMessages));
+    };
+
+    const fromUser = (message) => {
+        const userBoolean = currentUserId === message.userId ? true : false;
+
+        return userBoolean
+    }
 
     return (
         <>
-        <section className="section-content">
-        <button type="button"
-          className="button"
-          onClick={() => { history.push("/messages/public/create") }}>
-          Send New Message
+            <section className="section-content">
+                <button type="button"
+                    className="button"
+                    onClick={() => { history.push("/messages/public/create") }}>
+                    Send New Message
         </button>
-      </section>
+            </section>
 
-        <div className = "container-cards">
-            {messages.map(message =>
-                <PublicMessageCard
-                key={message.id}
-                message={message}
-                handleDeleteMessage={handleDeleteMessage} 
-                />)}
-        </div>
+            <div className="container-cards">
+                {messages.map(message =>
+                    <PublicMessageCard
+                        key={message.id}
+                        message={message}
+                        handleDeleteMessage={handleDeleteMessage}
+                    />)}
+            </div>
         </>
     )
 }

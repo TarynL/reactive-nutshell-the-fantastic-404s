@@ -7,7 +7,6 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
   const [weather, setWeather] = useState([""])
   const handleDeleteClick = (evt) => {
     let eventDelete = evt.target.id.split("__")[1]
-    console.log(eventDelete.split("__")[1])
     handleDeleteEvent(eventDelete)
   }
 
