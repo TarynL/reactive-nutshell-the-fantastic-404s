@@ -25,10 +25,11 @@ export const PublicMessageEditForm = () => {
     evt.preventDefault();
     setIsLoading(true);
 
+    // const loggedinuser = parseInt(sessionStorage.getItem("nutshell_user"))
     const editedMessage = {
       id: messageId,
       userId: message.userId,
-      receiverID: message.receiverId,
+      // receiverID: message.loggedinuser,
       message: message.message,
       currentTime: message.currentTime
     };

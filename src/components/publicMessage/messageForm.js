@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addMessage } from '../../modules/MessageManager';
-import { getAllUsers } from '../../modules/UserManager';
 
 export const PublicMessageForm = () => {
 
     // time = today.getHours() + ':' + today.getMinutes()
     const [message, setMessage] = useState({
         userId: 0, 
-        receiverId: "",
+        receiverId: parseInt(sessionStorage.getItem("nutshell_user")),
         message: "",
         currentTime: ""
     });

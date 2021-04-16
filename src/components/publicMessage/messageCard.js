@@ -1,14 +1,24 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { Link } from "react-router-dom";
+import { getSingleUser } from '../../modules/UserManager'
 
 
 export const PublicMessageCard = ({ message, handleDeleteMessage}) => {
-  let currentUserId = JSON.parse(sessionStorage.getItem("nutshell_user"))
+  const currentUserId = JSON.parse(sessionStorage.getItem("nutshell_user"))
+  const [recipient, setRecipient] = useState([]);
+
+useEffect(() => {
+    getSingleUser(message.receiverId)
+    .then(user => {
+        setRecipient(user)
+    }, []);
+})
+
   return (
     <div className="card">
       <div className="card-content">
         <p className="card-taskName"> Message: {message.message}</p>
-        <p>Sender: {message.user?.name}</p>
+        <p>Sender: {recipient.name}</p>
 
         {message.receiverId === currentUserId ?
         <>
