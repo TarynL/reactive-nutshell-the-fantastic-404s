@@ -11,7 +11,7 @@ export const MessageList = () => {
     const [messages, setMessages] = useState([]);
     const [sent, setSent] = useState([]);
     const history = useHistory();
-
+    
     const loggedInUser = sessionStorage.getItem("nutshell_user")
     const getLoggedInMessages = () => {
         

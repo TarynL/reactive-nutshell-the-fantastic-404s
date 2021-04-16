@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addMessage } from '../../modules/MessageManager';
-import { getAllUsers } from '../../modules/UserManager';
+// import { getAllUsers } from '../../modules/UserManager';
+import {getAllFriends} from '../../modules/FriendManager'
 import "./MessageCard.css";
+
 
 export const MessageForm = () => {
     var today = new Date(),
@@ -15,7 +17,7 @@ export const MessageForm = () => {
         currentTime: time
     });
 
-    const [users, setUsers] = useState([]);
+    const [friends, setFriends] = useState([]);
 
     const history = useHistory();
 
@@ -32,9 +34,11 @@ export const MessageForm = () => {
     }
 
     useEffect(() => {
-        getAllUsers()
-            .then(usersFromAPI => {
-                setUsers(usersFromAPI)
+        
+        getAllFriends()
+        
+            .then(friendsFromAPI => {
+                setFriends(friendsFromAPI)
             });
     }, []);
 
@@ -48,6 +52,7 @@ export const MessageForm = () => {
         } else {
             addMessage(message)
                 .then(() => history.push("/messages"))
+                
         }
     }
 
@@ -61,9 +66,10 @@ export const MessageForm = () => {
 					<label htmlFor="receiverId">Send to: </label>
 					<select value={message.receiverId} name="receiver" id="receiverId" onChange={handleControlledInputChange} className="form-control" >
 						<option value="0">Select a receiver</option>
-						{users.map(u => (
-							<option key={u.id} value={u.id}>
-								{u.name}
+						{friends.map(u => (
+                        
+							<option key={u.userId} value={u.userId}>
+								@{u.user.name}
 							</option>
 						))}
 					</select>
