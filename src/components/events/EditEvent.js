@@ -32,7 +32,7 @@ export const EditEvent = () => {
     const handleSaveEvent = (evt) => {
         evt.preventDefault();
 
-        if (event.eventDate === 0 || event.eventName === "") {
+        if (event.eventDate === "" || event.eventName === "") {
             alert("Check that a date and event name have been entered")
         } else {
             updateEvent(event).then(
@@ -70,7 +70,7 @@ export const EditEvent = () => {
             </div>
             <fieldset>
                 <label htmlFor="eventDate">Current Event Date: </label>
-                <input type="date" name="eventDate" id="eventDate" defaultValue={event.eventDate} onClick={handleControlledInputChange} />
+                <input type="date" name="eventDate" id="eventDate" onChange={handleControlledInputChange} defaultValue={event.eventDate}/>
             </fieldset>
             <button id="saveEventConfirm" onClick={handleSaveEvent}>Confirm</button>
 
