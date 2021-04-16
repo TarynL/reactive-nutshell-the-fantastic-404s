@@ -37,6 +37,12 @@ export const MessageList = () => {
     useEffect(() => {
         getLoggedInMessages();
     }, []);
+
+    // const handleDeleteMessage = (id) => {
+    //     deleteMessage(id)
+    //       .then(() => getSentMessages()
+    //         .then(setSent));
+    //   };
     
     return (
         <>
@@ -53,7 +59,7 @@ export const MessageList = () => {
                     <MessageCard
                         key={message.id}
                         message={message}
-                    />)}
+                    />).reverse()}
             </div>
 
             <div className="container-cards">
@@ -62,7 +68,8 @@ export const MessageList = () => {
                     <SentCard
                         key={sent.id}
                         message={sent}
-                    />)}
+                        
+                    />).reverse()}
             </div>
         </>
     )

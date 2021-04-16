@@ -8,6 +8,7 @@ import { Footer } from "./nav/footer"
 import "./Nutshell.css"
 
 export const Nutshell = () => (
+
   <>
     <Route
       render={() => {
