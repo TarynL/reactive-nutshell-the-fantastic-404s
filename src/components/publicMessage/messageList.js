@@ -23,12 +23,6 @@ export const MessageList = () => {
         getMessages();
     }, []);
 
-    // const fromUser = (message) => {
-    //     const userBoolean = currentUserId === message.userId ? true : false;
-
-    //     return userBoolean
-    // }
-
     return (
         <>
             <section className="section-content">
@@ -44,8 +38,9 @@ export const MessageList = () => {
                     <PublicMessageCard
                         key={message.id}
                         message={message}
-                        handleDeleteMessage={handleDeleteMessage}
-                    />)}
+                        handleDeleteMessage={handleDeleteMessage} 
+                    />).reverse()}
+              
             </div>
         </>
     )

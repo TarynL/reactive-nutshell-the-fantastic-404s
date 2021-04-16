@@ -9,7 +9,7 @@ export const PublicMessageForm = () => {
         userId: 0, 
         receiverId: parseInt(sessionStorage.getItem("nutshell_user")),
         message: "",
-        currentTime: ""
+        timestamp: ""
     });
 
     // const [users, setUsers] = useState([]);
