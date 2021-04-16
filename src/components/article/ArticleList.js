@@ -9,77 +9,53 @@ import { getAllFriends, getFriendsById } from '../../modules/FriendManager';
 export const ArticleList = () => {
   
 
-    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
+  //   const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
     
     const [friendArray, setFriendArray] = useState([]);
-    const [articles, setArticles] = useState([]);
-    const history = useHistory();
+  //   const [articles, setArticles] = useState([]);
+  //   const history = useHistory();
+  const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
     
     const getFriends = () => {
-      return getAllFriends(currentUserId).then(friendsFromAPI => {setFriendArray(friendsFromAPI)})
+      return getAllFriends(loggedInUser).then(friendsFromAPI => {setFriendArray(friendsFromAPI)})
     }
     useEffect (() => {
       getFriends();
     }, [])
     
-    
-   I need to loop over friendArray, and call getArticlesByUserId for each 
 
-    // // let articleArray = []
-    // // const createAllArticlesArray = () => { 
-    //   const friendUserIds = friendArray.map(friend => {return (friend.userId)})
-    //   friendUserIds.push(currentUserId)
-     
-   
+    const friendUserIds = friendArray.map(friend => {return (friend.userId)})    
+    const combinedArray = friendUserIds.concat(loggedInUser)
+    console.log(combinedArray)
 
-    // const prepareArticles = () => {
-    //   let newArray = []
-    //   return friendUserIds.forEach(friend => {
-    //     getArticlesByUserId(friend).then(result => {return result})
+
+    // await Promise.all(
+    //   combinedArray.map(async (id) => {
+    //     const response = await getArticlesByUserId(id)
+    //     const todo = await response.json()
+    //     console.log(todo)
     //   })
-      
-    // }
-    // useEffect (() => {
-    //   prepareArticles()
-    //   console.log(prepareArticles())
-    // }, []);
+    // )
 
-    //   const combinedArray = friendUserId.concat(currentUserId)
-    //   console.log(combinedArray)
-
-    //   let newArray = combinedArray.map(user => {getAllArticles(user)
-    // .then(result => { console.log(result) 
-    //   return result})
-    //   .then()
-    // })};
-    // createAllArticlesArray()
-    // console.log(newArray)
-
-
-    // return (articleArray.push(result)) 
-
-
-    const getArticles = () => {
-      return getArticlesByUserId(currentUserId)
-       
-      .then(articlesFromAPI => {
-        setArticles(articlesFromAPI)
-      })}
-    
-    
-    useEffect (() => {
-        getArticles();
   const [articles, setArticles] = useState([]);
   const history = useHistory();
-  const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
   
-
+ 
   const getArticles = () => {
-    return getAllArticles()
-      .then(articlesFromAPI => {
-        setArticles(articlesFromAPI)
-      });
-  };
+    const urlArray = combinedArray.map(userId => {
+      return getArticlesByUserId(userId) })
+        let newArticlesArray = Promise.all(urlArray).then(responses => {
+         responses.forEach(response => response.map(article => {console.log(article)}))
+        })
+        console.log(newArticlesArray)
+      }
+      
+      
+        // const finalArticleArray = newArticlesArray.forEach(array => array.map(article => {return article}))}
+        
+      
+  
+    
 
   useEffect(() => {
     getArticles();
@@ -93,8 +69,6 @@ export const ArticleList = () => {
         .then(setArticles));
   };
 
-  
-  
 
 
 
@@ -110,13 +84,12 @@ export const ArticleList = () => {
 
       <div className="container-cards">
         {articles.map(article =>
-          <ArticleCard
-            key={article.id}
-            article={article}
-            handleDeleteArticle={handleDeleteArticle}
-            loggedInUser={loggedInUser} />).reverse()}
+    <ArticleCard
+      key={article.id}
+      article={article}
+      handleDeleteArticle={handleDeleteArticle}
+      loggedInUser={loggedInUser} />).reverse()}
       </div>
 
     </>
-  )
-}
+  )}
