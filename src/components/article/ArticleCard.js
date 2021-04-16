@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 
 export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
     const history = useHistory();
-    let currentTimestamp = Date.now()
-    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(currentTimestamp)
+    
+    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(article.timestamp)
     return (
         <>
             {loggedInUser === article.userId ?
