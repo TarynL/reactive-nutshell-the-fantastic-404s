@@ -7,7 +7,6 @@ export const MessageList = () => {
 
     const [messages, setMessages] = useState([]);
     const history = useHistory();
-    const currentUserId = JSON.parse(sessionStorage.getItem("nutshell_user"))
 
     const getMessages = () => {
         return getAllPublicMessages()
@@ -15,22 +14,20 @@ export const MessageList = () => {
                 setMessages(messagesFromAPI)
             });
     };
-
-
-    useEffect(() => {
-        getMessages();
-    }, []);
-
     const handleDeleteMessage = (id) => {
         deleteMessage(id)
             .then(() => getMessages().then(setMessages));
     };
 
-    const fromUser = (message) => {
-        const userBoolean = currentUserId === message.userId ? true : false;
+    useEffect(() => {
+        getMessages();
+    }, []);
 
-        return userBoolean
-    }
+    // const fromUser = (message) => {
+    //     const userBoolean = currentUserId === message.userId ? true : false;
+
+    //     return userBoolean
+    // }
 
     return (
         <>
