@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCard } from './MessageCard'
 import {SentCard} from './SentCard'
-import { getAllMessages, getSentMessages,deleteMessage } from '../../modules/MessageManager'
+import { getAllMessages, getSentMessages } from '../../modules/MessageManager'
 
 import { useHistory } from 'react-router-dom';
 import "./MessageCard.css"
@@ -38,11 +38,11 @@ export const MessageList = () => {
         getLoggedInMessages();
     }, []);
 
-    const handleDeleteMessage = (id) => {
-        deleteMessage(id)
-          .then(() => getAllMessages()
-            .then(setMessages));
-      };
+    // const handleDeleteMessage = (id) => {
+    //     deleteMessage(id)
+    //       .then(() => getSentMessages()
+    //         .then(setSent));
+    //   };
     
     return (
         <>
@@ -68,7 +68,7 @@ export const MessageList = () => {
                     <SentCard
                         key={sent.id}
                         message={sent}
-                        handleDeleteMessage={handleDeleteMessage}
+                        
                     />).reverse()}
             </div>
         </>
