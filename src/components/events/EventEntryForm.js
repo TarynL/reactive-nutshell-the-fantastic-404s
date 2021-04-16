@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router";
 import { getEventsForUser, saveEvent } from "../../modules/EventManager"
 import "./event.css"
-const stateNames = [
+export const stateNames = [
     "Select State",
     "Alabama",
     "Alaska",
@@ -67,15 +67,14 @@ const stateNames = [
 
 export const GetStatesForSelect = () => {
     let date = new Date();
-    let stateInput = ""
-    let cityInput = ""
     const history = useHistory()
     const [states, setStates] = useState([])
     const [event, setEvent] = useState({
         userId: parseInt(sessionStorage.getItem("nutshell_user")),
         eventName: "",
-        location: { cityInput, stateInput },
-        eventDate: 0
+        city: "",
+        state:"",
+        eventDate: ""
     })
     const getStates = () => {
         setStates(stateNames)
@@ -87,11 +86,9 @@ export const GetStatesForSelect = () => {
         let selected = evt.target.value
         let newEvent = { ...event }
         if (evt.target.id === "cityName") {
-            cityInput = evt.target.value
-            newEvent["location"] = cityInput + "," + stateInput
+            newEvent["city"]= selected;
         } else if (evt.target.id === "state__name") {
-            stateInput = evt.target.value
-            newEvent["location"] = cityInput + "," + stateInput
+            newEvent["state"]= selected;
         } else {
             newEvent[evt.target.id] = selected
         }
@@ -101,10 +98,12 @@ export const GetStatesForSelect = () => {
 
     const handleSaveEvent = (evt) => {
         evt.preventDefault();
+        
         if (event.eventDate === 0 || event.eventName === "") {
             alert("Check that a date and event name have been entered")
         } else {
-            saveEvent(event).then(() => { history.push("/events") })
+            saveEvent(event).then(
+                getEventsForUser(event.userId).then(() => { history.push("/events") }))
         }
     }
     // Generate State list for drop down
