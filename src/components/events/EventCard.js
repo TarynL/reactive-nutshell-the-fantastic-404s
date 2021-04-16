@@ -5,19 +5,12 @@ import "./event.css"
 export const EventCard = ({ event, handleDeleteEvent }) => {
   const [events, setEvents] = useState([])
   const [weather, setWeather] = useState([""])
-<<<<<<< HEAD
-  const handleDeleteClick = (evt) => {
-    let eventDelete = evt.target.id.split("__")[1]
-    handleDeleteEvent(eventDelete)
-  }
-=======
 
   // const handleDeleteClick = (evt) => {
   //   let eventDelete = evt.target.id.split("__")[1]
   //   console.log(eventDelete, "event delet")
   //   handleDeleteEvent(eventDelete)
   // }
->>>>>>> main
 
   const handleShowWeather = (evt) => {
     getWeatherForecast().then((data) => showWeather(data)).then(setWeather)
