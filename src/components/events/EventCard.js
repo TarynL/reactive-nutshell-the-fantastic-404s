@@ -5,11 +5,12 @@ import "./event.css"
 export const EventCard = ({ event, handleDeleteEvent }) => {
   const [events, setEvents] = useState([])
   const [weather, setWeather] = useState([""])
-  const handleDeleteClick = (evt) => {
-    let eventDelete = evt.target.id.split("__")[1]
-    console.log(eventDelete.split("__")[1])
-    handleDeleteEvent(eventDelete)
-  }
+
+  // const handleDeleteClick = (evt) => {
+  //   let eventDelete = evt.target.id.split("__")[1]
+  //   console.log(eventDelete, "event delet")
+  //   handleDeleteEvent(eventDelete)
+  // }
 
   const handleShowWeather = (evt) => {
     getWeatherForecast().then((data) => showWeather(data)).then(setWeather)
@@ -28,7 +29,7 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
           <button id={"editId__" + event.id}>
             Edit
         </button>
-          <button id={"deleteId__" + event.id} onClick={handleDeleteClick}>
+          <button id={"deleteId__" + event.id} onClick={()=>{handleDeleteEvent(event.id)}}>
             Delete
         </button>
         </section>

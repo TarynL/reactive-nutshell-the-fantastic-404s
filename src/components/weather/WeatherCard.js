@@ -5,8 +5,6 @@ export const WeatherCard = ( {forecast} ) => {
     const timestamp = forecast.dt;
     //   ***  date declared as new Javascript DATE object (adding milliseconds)
     const date = new Date(timestamp * 1000);
-    //   ***   list Forecast HTML Template  ***   //
-    {console.log(date.getHours(),"hello")}
     return (<>
         <div className="weatherDay">
             <div>
