@@ -16,7 +16,7 @@ export const MessageList = () => {
     };
     const handleDeleteMessage = (id) => {
         deleteMessage(id)
-            .then(() => getMessages().then(setMessages));
+            .then(() => getMessages().then(()=>history.push("/")));
     };
 
     useEffect(() => {
