@@ -11,4 +11,8 @@ export const getUserByName = (name) => {
 export const getSingleUser = (id) => {
     return fetch(`${remoteURL}/users/${id}`)
     .then(res => res.json())
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> main

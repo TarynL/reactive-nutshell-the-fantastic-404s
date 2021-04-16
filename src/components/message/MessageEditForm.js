@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { updatePublicMessage, getMessagesById} from "../../modules/MessageManager";
+import { updatePrivateMessage, getMessagesById} from "../../modules/MessageManager";
 import { useParams, useHistory} from "react-router-dom";
+import {getSingleUser} from '../../modules/UserManager';
 
-
-export const PublicMessageEditForm = () => {
+export const PrivateMessageEditForm = () => {
   const [message, setMessage] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const { messageId } = useParams();
   const history = useHistory();
+
+  const [recipient, setRecipient] = useState([]);
+
+
 
   const handleFieldChange = (event) => {
     const stateToChange = { ...message };
@@ -28,14 +32,14 @@ export const PublicMessageEditForm = () => {
 
     const editedMessage = {
       id: messageId,
-      userId: 0,
+      userId:parseInt(sessionStorage.getItem("nutshell_user")),
       receiverId: message.receiverId,
       message: message.message,
-      timestamp: message.timestamp
+      currentTime: message.currentTime
     };
-
-    updatePublicMessage(editedMessage)
-    .then(() => history.push("/"));
+console.log(editedMessage)
+    updatePrivateMessage(editedMessage)
+    .then(() => history.push("/messages"));
   };
 
   useEffect(() => {
@@ -46,9 +50,17 @@ export const PublicMessageEditForm = () => {
     });
   }, []);
 
+  useEffect(() => {
+    getSingleUser(message.receiverId)
+    .then(user => {
+        setRecipient(user)
+    }, []);
+})
+
   return (
     <>
       <form>
+      <h3>Sent to: {recipient.name}</h3>
         <fieldset>
           <div className="formgrid">
             <label htmlFor="message">Message:</label>

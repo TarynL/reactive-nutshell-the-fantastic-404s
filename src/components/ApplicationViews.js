@@ -2,8 +2,8 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { FriendList } from "./friends/FriendList"
 import { ArticleList } from "./article/ArticleList";
-import {ArticleForm} from "./article/ArticleForm";
-import {ArticleEditForm} from "./article/ArticleEditForm";
+import { ArticleForm } from "./article/ArticleForm";
+import { ArticleEditForm } from "./article/ArticleEditForm";
 import { TaskList } from "./tasks/taskList";
 import { TaskForm } from "./tasks/taskForm";
 import { TaskEditForm } from "./tasks/taskEditForm"
@@ -11,10 +11,12 @@ import { Dashboard } from "./home"
 import { AddFriendForm } from "./friends/AddFriendForm";
 import { MessageList } from "./message/MessageList";
 import { GetStatesForSelect } from "./events/EventEntryForm";
-import {EventList} from "./events/EventList"
+import { EventList } from "./events/EventList"
 import { MessageForm } from "./message/MessageForm";
+import {PrivateMessageEditForm} from "./message/MessageEditForm"
 import { PublicMessageForm } from "./publicMessage/messageForm"
 import { PublicMessageEditForm } from "./publicMessage/messageEditForm"
+import { EditEvent } from "./events/EditEvent"
 export const ApplicationViews = () => {
   return (
     <>
@@ -34,8 +36,11 @@ export const ApplicationViews = () => {
       <Route exact path="/messages">
         <MessageList />
       </Route>
-      <Route path="/messages/create">
+      <Route exact path="/messages/create">
         <MessageForm />
+      </Route>
+      <Route path="/messages/:messageId(\d+)/edit">
+        <PrivateMessageEditForm />
       </Route>
       <Route path="/messages/public/create">
         <PublicMessageForm />
@@ -62,6 +67,9 @@ export const ApplicationViews = () => {
       <Route path="/events/create">
         <GetStatesForSelect />
       </Route>
+      <Route path="/events/:eventId(\d+)/edit">
+        <EditEvent />
+      </Route>
       <Route exact path="/articles">
         <ArticleList />
       </Route>
@@ -73,6 +81,7 @@ export const ApplicationViews = () => {
       <Route path="/articles/:articleId(\d+)/edit">
         <ArticleEditForm />
       </Route>
+
     </>
   )
 }
