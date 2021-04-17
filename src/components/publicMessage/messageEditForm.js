@@ -28,7 +28,7 @@ export const PublicMessageEditForm = () => {
 
     const editedMessage = {
       id: messageId,
-      userId: 0,
+      userId: 999,
       receiverId: message.receiverId,
       message: message.message,
       timestamp: message.timestamp

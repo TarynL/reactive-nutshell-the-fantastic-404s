@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 
 
 export const SentCard = ({message}) => {
-const [recipient, setRecipient] = useState([]);
+const [recipient, setRecipient] = useState({});
 
-useEffect(() => {
-    getSingleUser(message.receiverId)
-    .then(user => {
-        setRecipient(user)
-    }, []);
-})
+// useEffect(() => {
+//     getSingleUser(message.receiverId)
+//     .then(user => {
+//         setRecipient(user)
+//     }, [message]);
+// })
 
 
 
     return (
         <div className="messages">
             <div className="message-content">
-                <h3>Sent to: {recipient.name}</h3>
+                <h3>Sent to: {recipient?.name}</h3>
                 <p>{message.currentTime}</p>
                 <p>Message: {message.message}</p>
                 <Link to={`/messages/${message.id}/edit`}>
