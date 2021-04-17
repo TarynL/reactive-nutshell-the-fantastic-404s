@@ -7,8 +7,8 @@ import { getAllFriends, getFriendsById } from '../../modules/FriendManager';
 
 
 export const ArticleList = () => {
-  
-
+  let [variable, setVariable] = useState([])
+  let [newArray, setNewArray] = useState([])
   //   const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
     
     const [friendArray, setFriendArray] = useState([]);
@@ -40,25 +40,37 @@ export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const history = useHistory();
   
+  const urlArray = combinedArray.map(userId => {
+    return getArticlesByUserId(userId) })
  
   const getArticles = () => {
-    const urlArray = combinedArray.map(userId => {
-      return getArticlesByUserId(userId) })
-        let newArticlesArray = Promise.all(urlArray).then(responses => {
-         responses.forEach(response => response.map(article => {console.log(article)}))
-        })
+        Promise.all(urlArray).then(
+          response => setVariable(response)
+        )
+        // .then(responses => {
+        // setVariable(responses.forEach(response => {response.map(article => article)})
         
-      }
+        }
+        
+      
       
       
         // const finalArticleArray = newArticlesArray.forEach(array => array.map(article => {return article}))}
         
       
   
+  useEffect(() => {
+    setNewArray(newArray => [...newArray, variable])
     
+    console.log(variable)
+    let artArr = []
+    variable.map(arr => {arr.forEach(obj => {artArr.push(obj)})})
+    setArticles(artArr)
+  }, [variable]);
 
   useEffect(() => {
-    getArticles();
+    getArticles()
+    
     }, []);
 
   
