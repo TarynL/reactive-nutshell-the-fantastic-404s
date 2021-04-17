@@ -46,3 +46,13 @@
     grid-column-start: 3; 
     grid-column-end: 3;
 }  */
+
+.item5_weather {
+    border: 2px solid #AE4722;
+    width: 300px; 
+}
+
+.item5_weather img {
+    width: 290;
+    height: auto;
+}
