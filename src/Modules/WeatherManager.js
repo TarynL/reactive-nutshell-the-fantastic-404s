@@ -16,3 +16,11 @@ export const getWeatherForecast = () => {
         return data; //   ***  Parsed array returned  ***   //
     })
 };
+
+export const getWeatherByDay = ()=>{
+    return fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=36.16&lon=-86.77&units=imperial&exclude=minutely,hourly&appid=83431996ca7c14c1090007f6507e1592`).then((response) => response.json())
+    .then(data => {
+        weatherData = data;
+        return data; //   ***  Parsed array returned  ***   //
+    })
+}
