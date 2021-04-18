@@ -34,6 +34,8 @@ form button {
 }
 
 #weather {
+    background: rgb(2,0,36);
+    background: linear-gradient(31deg, rgba(2,0,36,.1) 0%, rgba(9,9,121,0.4) 20%, rgba(255,0,70,1) 95%);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -47,8 +49,7 @@ form button {
     height: 120px;
 }
 .weatherDay{
-    background: rgb(2,0,36);
-    background: linear-gradient(31deg, rgba(2,0,36,.1) 0%, rgba(9,9,121,0.4) 20%, rgba(255,0,70,1) 95%);
+
     display: flex;
     flex-direction: row;
     max-width: fit-content;
@@ -87,4 +88,8 @@ form button {
 .cardList {
     display: flex;
     align-items: center;
+}
+
+.firstEvent div{
+    background-color: cornsilk;
 }
