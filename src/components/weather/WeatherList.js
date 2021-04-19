@@ -5,7 +5,6 @@ export const showWeatherSingleDay = (forecast, dayCount) => {
     let day = forecast.daily[dayCount]
     const timestamp = day.dt ;
     const date = new Date(timestamp * 1000);
-    console.log(date.toLocaleDateString(), "DATE ", date.getDate())
     return (<>
         <div className="weatherDay">
             <img className="icon" src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="weatherIcon" />

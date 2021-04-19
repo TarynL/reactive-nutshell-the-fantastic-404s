@@ -24,12 +24,13 @@ export const EventList = () => {
         let future = []
         let completed = []
         for (let i = 0; i < sortedByDate.length; i++) {
-            if (Date.parse(sortedByDate[i].eventDate) > Date.now()) {
+            if (Date.parse(sortedByDate[i].eventDate) > (Date.now()-86400000).toFixed(0)) {
                 future.push(sortedByDate[i])
             } else {
                 completed.push(sortedByDate[i])}
         }
-        return [...future, ...completed]
+       return [...future, ...completed]  //! Show all events 
+        // return [...future] // Show now and future events
     }
 
     // Creates a sting that is used to get the events for the users,  e.g. user={userId} then join elements in array with &
@@ -45,7 +46,7 @@ export const EventList = () => {
     // Get events from the Api then sort them by date and store them in state
     const getEvents = () => {
         let tempFriends = friends.map(friend => { return `userId=${friend}` }).join("&")
-        return getEventsForUser(tempFriends).then(eventsFromApi => { console.log(eventsFromApi)
+        return getEventsForUser(tempFriends).then(eventsFromApi => {
             setEvent(getSoonestEvent(eventsFromApi)) })
     }
     //Delete event by event id, then get all events and render
