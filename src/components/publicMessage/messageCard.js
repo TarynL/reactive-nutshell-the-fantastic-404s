@@ -5,20 +5,20 @@ import { getSingleUser } from '../../modules/UserManager'
 
 export const PublicMessageCard = ({ message, handleDeleteMessage}) => {
   const currentUserId = JSON.parse(sessionStorage.getItem("nutshell_user"))
-  const [recipient, setRecipient] = useState([]);
+  const [recipient, setRecipient] = useState({});
 
 useEffect(() => {
     getSingleUser(message.receiverId)
     .then(user => {
         setRecipient(user)
-    }, []);
+    }, [message]);
 })
 
   return (
     <div className="card">
       <div className="card-content">
         <p className="card-taskName"> Message: {message.message}</p>
-        <p>Sender: {recipient.name}</p>
+        <p>Sender: {recipient?.name}</p>
 
         {message.receiverId === currentUserId ?
         <>

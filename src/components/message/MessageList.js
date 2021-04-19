@@ -22,9 +22,10 @@ export const MessageList = () => {
 
             })
     }
+
     const getMessages = () => {
         return getAllMessages()
-            .then(messagesFromAPI => {
+            .then(messagesFromAPI=> {
                 setMessages(messagesFromAPI)
             });
     };
