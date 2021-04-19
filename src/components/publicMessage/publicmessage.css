@@ -10,5 +10,10 @@
 
 .extra-content{
     color:#AE4722
+}
 
+
+.messageBoard{
+    border: 2px solid #AE4722;
+    width: 300px; 
 }

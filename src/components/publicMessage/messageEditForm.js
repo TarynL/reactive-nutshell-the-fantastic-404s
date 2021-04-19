@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updatePublicMessage, getMessagesById} from "../../modules/MessageManager";
+import { updatePublicMessage, getMessagesById} from "../../modules/PublicMessageManager";
 import { useParams, useHistory} from "react-router-dom";
 
 
@@ -28,8 +28,7 @@ export const PublicMessageEditForm = () => {
 
     const editedMessage = {
       id: messageId,
-      userId: 999,
-      receiverId: message.receiverId,
+      userId: message.userId,
       message: message.message,
       timestamp: message.timestamp
     };
