@@ -61,16 +61,10 @@ form button {
     align-content: space-between;
 }
 
-/* .am_pm {
-    font-size: 3em;
-    align-content: right;
-} */
 
-.card {
-    display: flex;
-    flex-direction: row-reverse;
-    max-width: 600px;
-}
+  .card_title {
+    color: darkslategrey;
+  }
 
 .weatherDetails {
     max-width: fit-content;
@@ -85,11 +79,14 @@ form button {
     max-width: fit-content;
 }
 
-.cardList {
-    display: flex;
-    align-items: center;
-}
+
 
 .firstEvent div{
     background-color: cornsilk;
+}
+
+.firstEvent h3 {
+    font-size: 4em;
+    color: #331f00;
+
 }
