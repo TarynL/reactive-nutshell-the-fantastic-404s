@@ -30,7 +30,9 @@ export const MessageList = () => {
     };
 
     useEffect(() => {
+        
         getMessages();
+     
         
     }, []);
 
@@ -63,11 +65,11 @@ export const MessageList = () => {
             </div>
 
             <div className="container-cards">
-                {sent.map(sent =>
+                {sent.map(sentMessage =>
                
                     <SentCard
-                        key={sent.id}
-                        message={sent}
+                        key={sentMessage.id}
+                        message={sentMessage}
                         
                     />).reverse()}
             </div>

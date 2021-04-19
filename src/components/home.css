@@ -16,3 +16,33 @@
 .dashboard{
     display: flex;
 }
+
+/* .grid-container {
+    display: grid;
+    grid-gap: 10px;
+  }
+
+/* .item1{
+    grid-column-start: 1; 
+    grid-column-end: 1;
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+}
+
+.item2{
+    grid-row: 1 / 2;
+    grid-column-start: 2; 
+    grid-column-end: 2;
+}
+
+.item3{
+    grid-row: 2 / 2;
+    grid-column-start: 3; 
+    grid-column-end: 3;
+}
+
+.item4{
+    grid-row: 2 / 2;
+    grid-column-start: 3; 
+    grid-column-end: 3;
+}  */

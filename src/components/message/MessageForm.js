@@ -1,3 +1,5 @@
+// Form component for private messages
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addMessage } from '../../modules/MessageManager';
@@ -7,9 +9,11 @@ import "./MessageCard.css";
 
 
 export const MessageForm = () => {
+    // named variable to get time format 
     var today = new Date(),
-
     time = today.getHours() + ':' + today.getMinutes()
+
+    // object data for useState hook
     const [message, setMessage] = useState({
         userId: parseInt(sessionStorage.getItem("nutshell_user")), 
         receiverId: 0,
@@ -21,6 +25,12 @@ export const MessageForm = () => {
 
     const history = useHistory();
 
+    // Function that handles input change on form.
+    // name a copy of the message
+    // Create variable to hold the targeted value
+    // If statement target ids that include Id and setting/parsing
+    //  above variable
+    // then set message with new object
     const handleControlledInputChange = (evt) => {
         const newMessage = { ...message }
         let selectedVal = evt.target.value
@@ -33,6 +43,7 @@ export const MessageForm = () => {
         setMessage(newMessage)
     }
 
+    // useEffect for getting all friends then setting the result to state
     useEffect(() => {
         
         getAllFriends()
@@ -42,6 +53,10 @@ export const MessageForm = () => {
             });
     }, []);
 
+    // fucntion handling the save of message
+    // set variable to the receiverId 
+    // if receviverId is not selected, alert window pops up
+    // then the message is added to the stack of messages using UseHistory hook
     const handleClickSaveMessage = (evt) => {
         evt.preventDefault()
 

@@ -30,24 +30,24 @@ export const Dashboard = () => {
 
   return (
     <>
-      <div className="title"><h1>Welcome to the 404</h1></div>
-      <div className="dashboard">
-        <div className="Highlight">
+    <div className="grid-container">
+      <div className="item1 title"><h1>Welcome to the 404</h1></div>
+        <div className="item2 Highlight">
           <h3 className="taskHighlight">Upcoming Task</h3>
           {taskSpotlightId && <TaskSpotlight taskId={taskSpotlightId} />}
           <button onClick={refreshSpotlightTask}>Next</button>
         </div>
 
-        <div className="articleHighlight">
+        <div className="item3 articleHighlight">
           <h3 className="newsArticle">News Article</h3>
           {articleSpotlightId && <ArticleSpotlight articleId={articleSpotlightId} />}
           <button onClick={nextSpotlightArticle}>Next</button>
         </div>
 
-        <aside className="messageBoard">
+        <div className="item4 messageBoard">
           <h3 className="message">Message Board</h3>
           <MessageList />
-        </aside>
+        </div>
       </div>
       </>
   );

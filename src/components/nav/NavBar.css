@@ -1,1 +1,24 @@
+.navbar{
+    background-color: #525A7C;
+    color: #FBEFDD;
+    height: 80px;
 
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+}
+
+.nav-link{
+    color: #FBEFDD; 
+}
+
+.footer{
+    background-color: #525A7C;
+    color: #FBEFDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}

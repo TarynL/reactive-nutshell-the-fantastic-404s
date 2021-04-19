@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { updatePublicMessage, getMessagesById} from "../../modules/MessageManager";
 import { useParams, useHistory} from "react-router-dom";
 
+
 export const PublicMessageEditForm = () => {
   const [message, setMessage] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -27,10 +28,10 @@ export const PublicMessageEditForm = () => {
 
     const editedMessage = {
       id: messageId,
-      userId: message.userId,
-      receiverID: message.receiverId,
+      userId: 0,
+      receiverId: message.receiverId,
       message: message.message,
-      currentTime: message.currentTime
+      timestamp: message.timestamp
     };
 
     updatePublicMessage(editedMessage)
