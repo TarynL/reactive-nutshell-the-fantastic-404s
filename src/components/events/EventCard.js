@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
-import { getWeatherByDay, getWeatherForecast } from "../../modules/WeatherManager"
-import { showWeather, showWeatherSingleDay } from "../weather/WeatherList"
+import React, { useState } from "react"
+import { getWeatherByDay } from "../../modules/WeatherManager"
+import {  showWeatherSingleDay } from "../weather/WeatherList"
 import { Link } from "react-router-dom"
 import "./event.css"
 export const EventCard = ({ event, handleDeleteEvent }) => {
@@ -10,7 +10,6 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
 
 
   const handleShowWeather = (evt) => {
-    console.log("In the function")
     const currentDate = new Date(date.getFullYear(), date.getMonth(), date.getDate())
     const eventDateStamp = new Date(event.eventDate)
     let offset = parseInt(Math.floor((eventDateStamp - currentDate) / 86400000))+1
@@ -31,6 +30,7 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
         <div id="weather">{dailyWeather}</div>
         <div className="eventDetails">
           <h3>Name: <span className="card-eventName">{event.eventName}</span></h3>
+          <p>Creator: {event.user.name}</p>
           <p>Date: {event.eventDate}</p>
           <h4>Location: {event.city}, {event.state}</h4>
         </div>
