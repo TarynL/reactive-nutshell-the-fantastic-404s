@@ -56,7 +56,7 @@ export const MessageList = () => {
             </section>
 
             <div className="container-cards">
-                {messages.map(message =>
+                {sent.map(message =>
                     <MessageCard
                         key={message.id}
                         message={message}
@@ -64,7 +64,7 @@ export const MessageList = () => {
             </div>
 
             <div className="container-cards">
-                {sent.map(sentMessage =>
+                {messages.map(sentMessage =>
                
                     <SentCard
                         key={sentMessage.id}
