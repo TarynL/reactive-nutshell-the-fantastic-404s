@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PublicMessageCard } from './messageCard';
-import { getAllPublicMessages, deleteMessage } from '../../modules/MessageManager';
+import { getAllPublicMessages, deleteMessage } from '../../modules/PublicMessageManager';
 import { useHistory } from 'react-router-dom';
 import { PublicMessageForm } from './messageForm';
 

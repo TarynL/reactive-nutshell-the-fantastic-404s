@@ -1,0 +1,20 @@
+.card-PMcontent{
+    margin: 10% 40%;
+}
+
+.read-more-link{
+    color: #AE4722;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.extra-content{
+    color:#AE4722
+
+}
+
+
+.messageBoard{
+    border: 2px solid #AE4722;
+    width: 300px; 
+}

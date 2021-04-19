@@ -1,13 +1,15 @@
 .navbar{
     background-color: #525A7C;
     color: #FBEFDD;
-    height: 80px;
+    height: 100px;
+    padding: 0px;
 
 }
 
 .logo{
-    width: 200px;
-    height: 200px;
+    width: 90px;
+    height: 90px;
+    padding: 0px;
 }
 
 .nav-link{
@@ -20,5 +22,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:50px;
+    width:100%;
 }
