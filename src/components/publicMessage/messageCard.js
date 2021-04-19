@@ -16,7 +16,7 @@ useEffect(() => {
 
   return (
     <div className="card">
-      <div className="card-content">
+      <div className="card-PMcontent">
         <p className="card-taskName"> Message: {message.message}</p>
         <p>Sender: {recipient?.name}</p>
 

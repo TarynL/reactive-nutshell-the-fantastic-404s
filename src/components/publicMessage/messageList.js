@@ -3,11 +3,16 @@ import { PublicMessageCard } from './messageCard';
 import { getAllPublicMessages, deleteMessage } from '../../modules/MessageManager';
 import { useHistory } from 'react-router-dom';
 import { PublicMessageForm } from './messageForm';
+import './publicmessage.css'
+
 
 export const MessageList = () => {
 
     const [publicMessages, setPublicMessages] = useState([]);
     const history = useHistory();
+    const [readMore,setReadMore] = useState(false)
+
+    const linkName=readMore?'Read Less':'Read More'
 
     const getMessages = () => {
         return getAllPublicMessages()
@@ -34,6 +39,9 @@ export const MessageList = () => {
                         handleDeleteMessage={handleDeleteMessage} 
                     />)}
               
+            </div>
+            <div>
+                <a className="read-more-link" onClick={()=>{setReadMore(!readMore)}}><p>{linkName}</p></a>
             </div>
             <section className="newMessage">
                 <PublicMessageForm getMessages={getMessages} />
