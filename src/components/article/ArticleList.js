@@ -7,84 +7,52 @@ import { getAllFriends, getFriendsById } from '../../modules/FriendManager';
 
 
 export const ArticleList = () => {
-  let [variable, setVariable] = useState([])
   let [newArray, setNewArray] = useState([])
-  //   const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
-    
-    const [friendArray, setFriendArray] = useState([]);
-  //   const [articles, setArticles] = useState([]);
-  //   const history = useHistory();
-  const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
-    
-    const getFriends = () => {
-      return getAllFriends(loggedInUser).then(friendsFromAPI => {setFriendArray(friendsFromAPI)})
-    }
-    useEffect (() => {
-      getFriends();
-    }, [])
-    
-
-    const friendUserIds = friendArray.map(friend => {return (friend.userId)})    
-    const combinedArray = friendUserIds.concat(loggedInUser)
-    console.log(combinedArray)
-
-
-    // await Promise.all(
-    //   combinedArray.map(async (id) => {
-    //     const response = await getArticlesByUserId(id)
-    //     const todo = await response.json()
-    //     console.log(todo)
-    //   })
-    // )
-
   const [articles, setArticles] = useState([]);
   const history = useHistory();
+
   
-  const urlArray = combinedArray.map(userId => {
-    return getArticlesByUserId(userId) })
- 
-  const getArticles = () => {
+  const loggedInUser = JSON.parse(sessionStorage.getItem("nutshell_user"))
+    
+  const getFriends = () => {
+     return (getAllFriends(loggedInUser).then(friendsFromAPI => {return friendsFromAPI.map(friend => {return (friend.userId)})}).then(results => {return results.concat(loggedInUser)}))
+      
+    
+  }
+    
+
+    
+    const getArticles = (array) => {
+      let artArr = []
+    const urlArray = array.map(userId => {
+      return (
+        getArticlesByUserId(userId).then(response => {return response}))})
         Promise.all(urlArray).then(
-          response => 
-            setVariable(response)
-        )
+        response => {return response.map(arr => {return arr.forEach(obj => {return (obj)})})
         
-        }
-        
-      
-      
-      
-        // const finalArticleArray = newArticlesArray.forEach(array => array.map(article => {return article}))}
-        
-      
-        useEffect(() => {
           
-        }, []);
+        })}
         
-        useEffect(() => {
-          // setNewArray(newArray => [...newArray, variable])
+ 
+        useEffect (() => {
+          getFriends().then(response => {getArticles(response)}).then(results => {console.log(results)})
+        }, [])
+        
+       
+        
           
-          let artArr = []
-          getArticles()
-    variable.map(arr => {arr.forEach(obj => {artArr.push(obj)})})
-   console.log(artArr, "array of articles")
-    setArticles(artArr)
-    console.log(articles, "state of articles")
-  }, [variable]);
-
-
-  
-
-  const handleDeleteArticle = (id) => {
-    deleteArticle(id)
-      .then(() => getAllArticles()
-        .then(setArticles));
-  };
+          
+          const handleDeleteArticle = (id) => {
+            deleteArticle(id)
+            .then(() => getArticles()
+            .then(setArticles));
+          };
 
 
 
 
   return (
+  
     <>
       <section className="section-content">
         <button type="button"

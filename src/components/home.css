@@ -68,9 +68,6 @@ body {
     grid-row: 2 / 2;
     grid-column-start: 3; 
     grid-column-end: 3;
-<<<<<<< HEAD
-}  
-=======
 }  */
 
 .item5_weather {
@@ -82,4 +79,3 @@ body {
     width: 290;
     height: auto;
 }
->>>>>>> main
