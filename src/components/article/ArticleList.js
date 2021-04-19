@@ -58,14 +58,14 @@ export const ArticleList = () => {
         
       
         useEffect(() => {
-          getArticles()
           
-          }, []);
+        }, []);
         
         useEffect(() => {
-    // setNewArray(newArray => [...newArray, variable])
-  
-    let artArr = []
+          // setNewArray(newArray => [...newArray, variable])
+          
+          let artArr = []
+          getArticles()
     variable.map(arr => {arr.forEach(obj => {artArr.push(obj)})})
    console.log(artArr, "array of articles")
     setArticles(artArr)
