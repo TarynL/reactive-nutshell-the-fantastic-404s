@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import { Link } from "react-router-dom";
+import "../home.css";
 import { getSingleUser } from '../../modules/UserManager'
 
 
@@ -21,12 +22,12 @@ useEffect(() => {
         <p>Sender: {recipient?.name}</p>
 
         {message.receiverId === currentUserId ?
-        <>
+        <div className="buttonBox">
         <Link to={`/messages/public/${message.id}/edit`}>
-          <button type="button">Edit</button>
+          <button type="button" className="pmButton">Edit</button>
           </Link>
-        <button type="button" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
-        </>
+        <button type="button" className="pmButton" onClick={() => handleDeleteMessage(message.id)}>Delete</button>
+        </div>
         : null} 
 
       </div>
