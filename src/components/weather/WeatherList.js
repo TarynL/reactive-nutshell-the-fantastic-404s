@@ -3,15 +3,16 @@ import "../events/event.css"
 
 export const showWeatherSingleDay = (forecast, dayCount) => {
     let day = forecast.daily[dayCount]
-    const timestamp = day.dt;
+    const timestamp = day.dt ;
     const date = new Date(timestamp * 1000);
+    console.log(date.toLocaleDateString(), "DATE ", date.getDate())
     return (<>
         <div className="weatherDay">
             <img className="icon" src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="weatherIcon" />
             <div className="Weather Details">
-                <div>{date.getMonth() + 1}/{date.getDate() + 1}</div>
+                <div>{date.getMonth() + 1}/{date.getDate()  }</div>
                 <div>High: {day.temp.max.toFixed(0)}</div>
-                <div>Low: {day.temp.max.toFixed(0)}</div>
+                <div>Low: {day.temp.min.toFixed(0)}</div>
             </div>
         </div>
     </>)

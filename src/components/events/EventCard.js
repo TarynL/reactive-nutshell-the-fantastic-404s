@@ -13,11 +13,11 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
     console.log("In the function")
     const currentDate = new Date(date.getFullYear(), date.getMonth(), date.getDate())
     const eventDateStamp = new Date(event.eventDate)
-    let offset = parseInt(Math.floor(Math.abs((currentDate - eventDateStamp) / 86400000)))
+    let offset = parseInt(Math.floor((eventDateStamp - currentDate) / 86400000))+1
     if(offset > 5){
       setWeather("This date is in the future, so here is today's weather \n have a good one!")}
-    console.log(offset)
-    offset = (offset > 5) ? 0 : offset
+    console.log(offset, "Offset")
+    offset = (offset > 5 || offset < 0) ? 0 : offset
     getWeatherByDay().then((data) => showWeatherSingleDay(data, offset))
       .then(setDailyWeather)
 
