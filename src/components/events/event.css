@@ -1,11 +1,18 @@
-:root{
+h1 {
+    font-family: 'Roboto', sans-serif;}
+
+body {
+    font-family: sans-serif;
+}
+
+/* :root{
     --num: 255;
     --blue: 255;
     --min: rgba(0,0,255,.4);
     --max: rgba(255,0,0,.4);
     align-items: center;
 
-}
+} */
 #eventForm {
     border: 3px solid black;
     width: fit-content;
@@ -42,16 +49,17 @@ form button {
     flex-basis: 25%;
     
 }
-#weather img {
+/* #weather img {
     width: 120px;
     height: 120px;
-}
+} */
 .weatherDay{
-    background: rgb(2,0,36);
-    background: linear-gradient(31deg, rgba(2,0,36,.1) 0%, rgba(9,9,121,0.4) 20%, rgba(255,0,70,1) 95%);
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(31deg, rgba(2,0,36,.1) 0%, rgba(9,9,121,0.4) 20%, rgba(255,0,70,1) 95%); */
     display: flex;
     flex-direction: row;
-    max-width: fit-content;
+    width: fit-content;
+    padding: 8px;
 }
 
 .weatherDateGroup {
@@ -68,7 +76,7 @@ form button {
 .card {
     display: flex;
     flex-direction: row-reverse;
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .weatherDetails {
@@ -87,4 +95,10 @@ form button {
 .cardList {
     display: flex;
     align-items: center;
+}
+
+.icon{
+    padding: 3px;
+    width: 80px;
+    height: 80px;
 }

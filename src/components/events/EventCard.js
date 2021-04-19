@@ -15,7 +15,7 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
     const eventDateStamp = new Date(event.eventDate)
     let offset = parseInt(Math.floor(Math.abs((currentDate - eventDateStamp) / 86400000)))
     if(offset > 5){
-      setWeather("This date is in the future, so here is today's weather \n have a good one!")}
+      setWeather("This date is too far in the future, so here is today's weather. \n Have a good one!")}
     console.log(offset)
     offset = (offset > 5) ? 0 : offset
     getWeatherByDay().then((data) => showWeatherSingleDay(data, offset))

@@ -1,9 +1,15 @@
+h1 {
+    font-family: 'Roboto', sans-serif;}
+
+body {
+    font-family: sans-serif;
+}
+
 .navbar{
     background-color: #525A7C;
     color: #FBEFDD;
     height: 100px;
-    padding: 0px;
-
+    margin-top: 20px;
 }
 
 .logo{
@@ -14,6 +20,12 @@
 
 .nav-link{
     color: #FBEFDD; 
+}
+
+a {
+    color: #AE4722;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 .footer{
@@ -27,4 +39,5 @@
     bottom:0px;
     height:50px;
     width:100%;
+
 }
