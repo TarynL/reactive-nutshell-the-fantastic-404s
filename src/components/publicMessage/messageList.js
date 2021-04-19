@@ -32,7 +32,7 @@ export const MessageList = () => {
                         key={message.id}
                         message={message}
                         handleDeleteMessage={handleDeleteMessage} 
-                    />).reverse()}
+                    />)}
               
             </div>
             <section className="newMessage">
