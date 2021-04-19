@@ -21,3 +21,18 @@ export const saveEvent = (newEvent) => {
         body: JSON.stringify(newEvent)
     }).then(res => res.json())
 }
+
+export const updateEvent = (eventUpdate) => {
+    return fetch(`http://localhost:8088/events/${eventUpdate.id}`,{
+        method:"PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(eventUpdate)
+    }).then(res => res.json())
+
+}
+
+export const getEventById = (id) => {
+    return fetch(`http://localhost:8088/events/${id}`).then(res => res.json())
+}
