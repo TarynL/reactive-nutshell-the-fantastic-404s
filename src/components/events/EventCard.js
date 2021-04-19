@@ -1,36 +1,51 @@
 import React, { useEffect, useState } from "react"
-import { getWeatherForecast } from "../../modules/WeatherManager"
-import { showWeather } from "../weather/WeatherList"
-import {Link} from "react-router-dom"
+import { getWeatherByDay, getWeatherForecast } from "../../modules/WeatherManager"
+import { showWeather, showWeatherSingleDay } from "../weather/WeatherList"
+import { Link } from "react-router-dom"
 import "./event.css"
 export const EventCard = ({ event, handleDeleteEvent }) => {
-  const [events, setEvents] = useState([])
+  const date = new Date();
   const [weather, setWeather] = useState([""])
+  const [dailyWeather, setDailyWeather] = useState([""])
 
 
   const handleShowWeather = (evt) => {
-    getWeatherForecast().then((data) => showWeather(data)).then(setWeather)
+    console.log("In the function")
+    const currentDate = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+    const eventDateStamp = new Date(event.eventDate)
+    let offset = parseInt(Math.floor(Math.abs((currentDate - eventDateStamp) / 86400000)))
+    if(offset > 5){
+      setWeather("This date is in the future, so here is today's weather \n have a good one!")}
+    console.log(offset)
+    offset = (offset > 5) ? 0 : offset
+    getWeatherByDay().then((data) => showWeatherSingleDay(data, offset))
+      .then(setDailyWeather)
+
   }
 
   return (<>
+
     <div className="card">
+      <div>{weather}</div>
       <div className="card-content">
-        <h3>Name: <span className="card-eventName">{event.eventName}</span></h3>
-        <p>Date: {event.eventDate}</p>
-        <h4>Location: {event.city}, {event.state}</h4>
-        <section>
+        <div id="weather">{dailyWeather}</div>
+        <div className="eventDetails">
+          <h3>Name: <span className="card-eventName">{event.eventName}</span></h3>
+          <p>Date: {event.eventDate}</p>
+          <h4>Location: {event.city}, {event.state}</h4>
+        </div>
+        <section className="eventButtons">
           <button onClick={handleShowWeather} id={"weatherId__" + event.id}>
-          Show Weather
+            Show Weather
         </button>
-        <Link to={`/events/${event.id}/edit`}>
-          <button>Edit</button>
+          <Link to={`/events/${event.id}/edit`}>
+            <button>Edit</button>
           </Link>
-          <button id={"deleteId__" + event.id} onClick={()=>{handleDeleteEvent(event.id)}}>
+          <button id={"deleteId__" + event.id} onClick={() => { handleDeleteEvent(event.id) }}>
             Delete
         </button>
         </section>
       </div>
-      <div id="weather">{weather}</div>
     </div>
   </>)
 }
