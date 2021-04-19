@@ -51,7 +51,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 15px;
   }
 
 .item1{
