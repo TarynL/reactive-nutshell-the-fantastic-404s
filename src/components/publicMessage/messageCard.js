@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../home.css";
 
 
-export const PublicMessageCard = ({ message, handleDeleteMessage, checkFriend, handleAddFriend}) => {
+export const PublicMessageCard = ({ message, handleDeleteMessage}) => {
   const currentUserId = JSON.parse(sessionStorage.getItem("nutshell_user"))
 
 

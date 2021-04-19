@@ -88,9 +88,9 @@ form button {
     flex-direction: row;
 }
 
-.eventButtons button {
+/* .eventButtons button {
     max-width: fit-content;
-}
+} */
 
 .cardList {
     display: flex;
@@ -102,3 +102,22 @@ form button {
     width: 80px;
     height: 80px;
 }
+/* 
+.eventButton{
+    background-color: #FBEFDD;
+    border: #AE4722 2px solid;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    padding: .5em;
+    border-radius: 2px;
+    margin: .5em;
+    width: 20%;
+  }
+  
+  .a {
+    background-color: #AE4722;
+    color: #FBEFDD
+} */

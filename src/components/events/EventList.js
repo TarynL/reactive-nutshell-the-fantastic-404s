@@ -22,7 +22,7 @@ export const EventList = () => {
 
     // Check if any events exist for the user, if none then return nothing
     return (<>
-        <Link to="/events/create"><button>Create Event</button></Link>
+        <Link to="/events/create"><button className="button">Create Event</button></Link>
         <div className="eventList">
             {events.length > 0 ?
                 events.map(event => {

@@ -35,13 +35,13 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
           <h4>Location: {event.city}, {event.state}</h4>
         </div>
         <section className="eventButtons">
-          <button onClick={handleShowWeather} id={"weatherId__" + event.id}>
+          <button className="eventButton" onClick={handleShowWeather} id={"weatherId__" + event.id}>
             Show Weather
         </button>
           <Link to={`/events/${event.id}/edit`}>
-            <button>Edit</button>
+            <button className="eventButton">Edit</button>
           </Link>
-          <button id={"deleteId__" + event.id} onClick={() => { handleDeleteEvent(event.id) }}>
+          <button className="eventButton" id={"deleteId__" + event.id} onClick={() => { handleDeleteEvent(event.id) }}>
             Delete
         </button>
         </section>

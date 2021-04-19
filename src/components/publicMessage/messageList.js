@@ -4,7 +4,7 @@ import { getAllPublicMessages, deleteMessage } from '../../modules/PublicMessage
 import { useHistory } from 'react-router-dom';
 import { PublicMessageForm } from './messageForm';
 import './publicmessage.css';
-import { addNewFriend, getAllFriends} from '../../modules/FriendManager';
+// import { addNewFriend, getAllFriends} from '../../modules/FriendManager';
 
 
 export const MessageList = () => {
@@ -61,8 +61,6 @@ export const MessageList = () => {
                     <PublicMessageCard
                         key={message.id}
                         message={message}
-                        checkFriend={checkFriend}
-                        handleAddFriend={handleAddFriend}
                         handleDeleteMessage={handleDeleteMessage} 
                     />)}
               

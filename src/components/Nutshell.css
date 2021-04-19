@@ -8,3 +8,9 @@ h1 {
 body {
   font-family: sans-serif;
 }
+
+.applicationView{
+  margin: 10px 0px 10px 10px;
+  min-height: 100vh;
+
+}

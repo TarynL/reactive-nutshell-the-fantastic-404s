@@ -9,8 +9,8 @@ export const MessageCard = ({ message }) => {
 
 
     return (
-        <div className="messages">
-            <div className="message-content">
+        <div className="card">
+            <div className="card-content">
                 <h3>From: {message.user?.name}</h3>
                 <p>{message.currentTime}</p>
                 <p>Message: {message.message}</p>
