@@ -22,9 +22,10 @@ export const MessageList = () => {
 
             })
     }
+
     const getMessages = () => {
         return getAllMessages()
-            .then(messagesFromAPI => {
+            .then(messagesFromAPI=> {
                 setMessages(messagesFromAPI)
             });
     };
@@ -63,11 +64,11 @@ export const MessageList = () => {
             </div>
 
             <div className="container-cards">
-                {sent.map(sent =>
+                {sent.map(sentMessage =>
                
                     <SentCard
-                        key={sent.id}
-                        message={sent}
+                        key={sentMessage.id}
+                        message={sentMessage}
                         
                     />).reverse()}
             </div>
