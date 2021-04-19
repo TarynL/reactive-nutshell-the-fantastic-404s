@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
-import { addMessage } from '../../modules/MessageManager';
+import { addMessage } from '../../modules/PublicMessageManager';
 
 export const PublicMessageForm = ({getMessages}) => {
 
@@ -8,8 +8,7 @@ export const PublicMessageForm = ({getMessages}) => {
     const [isLoading, setIsLoading] = useState(false)
 
     const [message, setMessage] = useState({
-        userId: 999, 
-        receiverId: parseInt(sessionStorage.getItem("nutshell_user")),
+        userId: parseInt(sessionStorage.getItem("nutshell_user")),
         message: "",
         timestamp: ""
     });
@@ -34,8 +33,7 @@ export const PublicMessageForm = ({getMessages}) => {
             getMessages()
             setIsLoading(false)
             setMessage( {
-                userId: 999, 
-                receiverId: parseInt(sessionStorage.getItem("nutshell_user")),
+                userId: parseInt(sessionStorage.getItem("nutshell_user")),
                 message: "",
                 timestamp: "" 
             })
