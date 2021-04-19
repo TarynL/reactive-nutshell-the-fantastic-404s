@@ -45,10 +45,9 @@ export const ArticleList = () => {
  
   const getArticles = () => {
         Promise.all(urlArray).then(
-          response => setVariable(response)
+          response => 
+            setVariable(response)
         )
-        // .then(responses => {
-        // setVariable(responses.forEach(response => {response.map(article => article)})
         
         }
         
@@ -58,20 +57,21 @@ export const ArticleList = () => {
         // const finalArticleArray = newArticlesArray.forEach(array => array.map(article => {return article}))}
         
       
+        useEffect(() => {
+          getArticles()
+          
+          }, []);
+        
+        useEffect(() => {
+    // setNewArray(newArray => [...newArray, variable])
   
-  useEffect(() => {
-    setNewArray(newArray => [...newArray, variable])
-    
-    console.log(variable)
     let artArr = []
     variable.map(arr => {arr.forEach(obj => {artArr.push(obj)})})
+   console.log(artArr, "array of articles")
     setArticles(artArr)
+    console.log(articles, "state of articles")
   }, [variable]);
 
-  useEffect(() => {
-    getArticles()
-    
-    }, []);
 
   
 
