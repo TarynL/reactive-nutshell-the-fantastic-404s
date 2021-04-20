@@ -4,17 +4,19 @@ import { useHistory } from 'react-router-dom'
 import { getAllFriends, deleteFriend } from '../../modules/FriendManager'
 import './friend.css'
 
+const currentUser = sessionStorage.getItem("nutshell_user")
+
 export const FriendList = () => {
     const [friends, setFriends] = useState([]);
     const history = useHistory();
 
     const handleDeleteFriend = id => {
         deleteFriend(id)
-        .then(() => getAllFriends().then(setFriends));
+        .then(() => getAllFriends(currentUser).then(setFriends));
     };
 
     const getFriends = () => {
-        return getAllFriends().then(friendsFromAPI => {
+        return getAllFriends(currentUser).then(friendsFromAPI => {
             setFriends(friendsFromAPI)
         });
     };

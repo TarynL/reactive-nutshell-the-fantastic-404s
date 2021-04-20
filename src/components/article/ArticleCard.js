@@ -29,7 +29,7 @@ export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
                     </div>
                 </div> :
 
-                <div className="card">
+                <div className="card-friend">
                     <div className="card-content">
 
                         <h3>Article Title: <span className="card-title">

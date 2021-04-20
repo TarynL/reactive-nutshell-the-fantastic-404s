@@ -8,6 +8,7 @@ import { TaskList } from "./tasks/taskList";
 import { TaskForm } from "./tasks/taskForm";
 import { TaskEditForm } from "./tasks/taskEditForm"
 import { Dashboard } from "./home"
+import { AddFriendForm } from "./friends/AddFriendForm";
 import { MessageList } from "./message/MessageList";
 import { GetStatesForSelect } from "./events/EventEntryForm";
 import { EventList } from "./events/EventList"
@@ -24,10 +25,14 @@ export const ApplicationViews = () => {
         {/* Render the component for news articles */}
         <Dashboard />
       </Route>
-      <Route path="/friends">
+      <Route exact path="/friends">
         {/* Render the component for list of friends */}
         <FriendList />
       </Route>
+      <Route path="/friends/addFriends">
+        <AddFriendForm />
+      </Route>
+      
       <Route exact path="/messages">
         <MessageList />
       </Route>

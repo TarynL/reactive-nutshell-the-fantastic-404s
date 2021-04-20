@@ -5,8 +5,11 @@ export const getArticleById = (id) => {
     .then(res => res.json())
 }
 
-export const getAllArticles = () => {
-    return fetch(`${remoteURL}/articles`)
+export const getArticlesByUserId = (userId) => {
+  return fetch (`${remoteURL}/articles?userId=${userId}`).then(res => res.json())}
+
+export const getAllArticles = (userId) => {
+    return fetch(`${remoteURL}/articles?userId=${userId}`)
     .then(res => res.json())
 }
 
@@ -19,6 +22,7 @@ export const addArticle = (newArticle) => {
         body: JSON.stringify(newArticle)
     }).then(res => res.json())
 }
+
 
 export const deleteArticle = (id) => {
     return fetch (`${remoteURL}/articles/${id}`, {
