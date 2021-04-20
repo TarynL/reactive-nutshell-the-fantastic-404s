@@ -28,7 +28,7 @@ body {
 
 .nav-link:active{
     color: #AE4722; 
-    font-style: underline;
+    font-weight: bold;
 }
 
 button:hover {

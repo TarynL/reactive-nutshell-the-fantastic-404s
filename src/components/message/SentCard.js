@@ -1,27 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import "./MessageCard.css";
-import {getSingleUser} from '../../modules/UserManager'
+import {getSingleUser}from "../../modules/UserManager"
 import { Link } from "react-router-dom";
 
 
 
 export const SentCard = ({message}) => {
-const [recipient, setRecipient] = useState({});
+const [userName, setUserName] = useState()
 
-// useEffect(() => {
-//     getSingleUser(message.receiverId)
-//     .then(user => {
-//         setRecipient(user)
-//     }, [message]);
-// })
-
-
+    useEffect(() => {
+        getSingleUser(message.userId)
+        .then(res => setUserName(res.name))
+        
+    }, []);
 
     return (
-        <div className="messages">
-            <div className="message-content">
-                <h3>Sent to: {recipient?.name}</h3>
-                <p>{message.currentTime}</p>
+        <div className="card">
+            <div className="card-content">
+                <h3>Sent to: {userName}</h3>
+                <p>{message.timestamp}</p>
                 <p>Message: {message.message}</p>
                 <Link to={`/messages/${message.id}/edit`}>
                     <button>Edit</button>
