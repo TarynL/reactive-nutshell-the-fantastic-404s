@@ -102,7 +102,7 @@ export const ArticleEditForm = () => {
                         <button
                             type="button" disabled={isLoading}
                             onClick={updateExistingArticle}
-                            className="btn btn-primary"
+                            className="button"
                         >Submit</button>
                     </div>
                 </fieldset>

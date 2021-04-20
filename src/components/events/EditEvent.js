@@ -72,7 +72,7 @@ export const EditEvent = () => {
                 <label htmlFor="eventDate">Current Event Date: </label>
                 <input type="date" name="eventDate" id="eventDate" onChange={handleControlledInputChange} defaultValue={event.eventDate}/>
             </fieldset>
-            <button id="saveEventConfirm" onClick={handleSaveEvent}>Confirm</button>
+            <button id="saveEventConfirm" className="button" onClick={handleSaveEvent}>Confirm</button>
 
         </form>
     </>)

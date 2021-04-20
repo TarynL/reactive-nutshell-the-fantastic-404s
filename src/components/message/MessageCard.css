@@ -12,5 +12,26 @@ body {
 
 .btn:hover{
     background-color: #AE4722;
+}
 
+.grid-container {
+    display: grid;
+    grid-gap: 10px;
+  }
+
+.box1{
+    grid-column-start: 1; 
+    grid-column-end: 1;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.box2{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.box3{
+    grid-column: 2;
+    grid-row: 2;
 }

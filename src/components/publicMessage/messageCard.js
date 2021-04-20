@@ -8,7 +8,7 @@ export const PublicMessageCard = ({ message, handleDeleteMessage}) => {
 
 
   return (
-    <div className="card">
+    <div className="PMcard">
       <div className="card-PMcontent">
         <p className="card-taskName"> Message: {message.message}</p>
         <p>Sender: {message.user.name}</p>

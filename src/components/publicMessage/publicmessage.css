@@ -24,6 +24,19 @@ body {
     margin-bottom: 2em;
     flex: 0 1 24%;
     flex-direction: column;
+    border: #AE4722 solid 4px;
+  }
+
+  .PMcard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 3px; 
+    padding: 3px;
+    margin-bottom: 2em;
+    flex: 0 1 24%;
+    flex-direction: column;
+    border: #AE4722 solid 2px; 
+    background-color: white; 
   }
   
   .card-content {

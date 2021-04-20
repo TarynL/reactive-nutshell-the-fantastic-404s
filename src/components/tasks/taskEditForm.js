@@ -77,7 +77,7 @@ export const TaskEditForm = () => {
               type="button"
               disabled={isLoading}
               onClick={updateExistingTask}
-              className="btn btn-primary"
+              className="button"
             >
               Submit
             </button>

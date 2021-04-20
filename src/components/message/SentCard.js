@@ -16,8 +16,8 @@ const [userName, setUserName] = useState()
 
     return (
         <div className="card">
-            <div className="card-content">
-                <h3>Sent to: {userName}</h3>
+            <div className="card-content messages">
+                <h4>Sent to: {userName}</h4>
                 <p>{message.timestamp}</p>
                 <p>Message: {message.message}</p>
                 <Link to={`/messages/${message.id}/edit`}>
