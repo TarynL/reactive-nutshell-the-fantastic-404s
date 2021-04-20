@@ -29,9 +29,7 @@ export const AddFriendForm = () => {
         event.preventDefault()
 
         let enteredName = getUserByName(friend.name).then(result => {
-            console.log(result)
             let friendToBeAdded = { userId: result[0].id, currentUserId: parseInt(sessionStorage.getItem("nutshell_user")) }
-            console.log(friendToBeAdded)
             addNewFriend(friendToBeAdded).then(() => history.push("/friends"))
         })
     }
