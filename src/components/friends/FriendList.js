@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FriendCard } from './FriendCard'
 import { useHistory } from 'react-router-dom'
 import { getAllFriends, deleteFriend } from '../../modules/FriendManager'
+import './friend.css'
 
 export const FriendList = () => {
     const [friends, setFriends] = useState([]);
@@ -26,7 +27,7 @@ export const FriendList = () => {
         <>
             <section>
                 <button type="button"
-                    className="btn"
+                    className="button"
                     onClick={() => { history.push("/friends/addFriends")}}>Add Friends
                     </button>
             </section>

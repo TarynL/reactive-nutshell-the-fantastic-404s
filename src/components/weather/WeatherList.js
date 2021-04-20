@@ -9,7 +9,7 @@ export const showWeatherSingleDay = (forecast, dayCount) => {
         <div className="weatherDay">
             <img className="icon" src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="weatherIcon" />
             <div className="Weather Details">
-                <div>{date.getMonth() + 1}/{date.getDate()  }</div>
+                <div>Date: {date.getMonth() + 1}/{date.getDate() + 1}</div>
                 <div>High: {day.temp.max.toFixed(0)}</div>
                 <div>Low: {day.temp.min.toFixed(0)}</div>
             </div>

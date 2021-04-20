@@ -16,8 +16,12 @@ export const Nutshell = () => (
           return (
             <>
               <NavBar />
+              <div className="applicationView">
               <ApplicationViews />
+              </div>
+              <div>
               <Footer />
+              </div>
             </>
           )
         } else {

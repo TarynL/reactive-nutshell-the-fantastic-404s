@@ -9,10 +9,10 @@ export const MessageForm = () => {
 
     time = today.getHours() + ':' + today.getMinutes()
     const [message, setMessage] = useState({
-        userId: parseInt(sessionStorage.getItem("nutshell_user")), 
-        receiverId: 0,
+        senderId: parseInt(sessionStorage.getItem("nutshell_user")), 
+        userId: 0,
         message: "",
-        currentTime: time
+        timestamp: time
     });
 
     const [users, setUsers] = useState([]);
@@ -41,14 +41,14 @@ export const MessageForm = () => {
     const handleClickSaveMessage = (evt) => {
         evt.preventDefault()
 
-        const receiverId = message.receiverId
+        // const receiverId = message.receiverId
 
-        if (receiverId === 0) {
-            window.alert("Please select receiver of message")
-        } else {
+        // if (receiverId === 0) {
+        //     window.alert("Please select receiver of message")
+        // } else {
             addMessage(message)
                 .then(() => history.push("/messages"))
-        }
+        // }
     }
 
     return (
@@ -58,9 +58,9 @@ export const MessageForm = () => {
             <h2 className="messageFrom_title">New Message</h2>
             <fieldset>
 				<div className="form-group">
-					<label htmlFor="receiverId">Send to: </label>
-					<select value={message.receiverId} name="receiver" id="receiverId" onChange={handleControlledInputChange} className="form-control" >
-						<option value="0">Select a receiver</option>
+					<label htmlFor="userId">Send to: </label>
+					<select value={message.userId} name="user" id="userId" onChange={handleControlledInputChange} className="form-control" >
+						<option value="0">Select a friend</option>
 						{users.map(u => (
 							<option key={u.id} value={u.id}>
 								{u.name}

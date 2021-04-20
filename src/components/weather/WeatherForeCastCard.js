@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { getWeatherByDay } from "../../modules/WeatherManager"
 import { showWeatherSingleDay } from "./WeatherList"
+import '../home.css'
+
 export const GetHomeWeather = () => {
     const [weather, setWeather] = useState([""])
     const getWeather = () => {
@@ -12,8 +14,8 @@ export const GetHomeWeather = () => {
     }, [])
     return (<>
         <section className="item5_weather">
-            <div>Today's Weather </div>
-            <div>{weather}</div>
+            <div className="header"><h3>Today's Weather </h3></div>
+            <div className="homeWeather">{weather}</div>
         </section>
 
     </>)

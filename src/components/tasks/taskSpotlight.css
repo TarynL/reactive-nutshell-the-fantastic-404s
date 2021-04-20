@@ -1,0 +1,7 @@
+.task-spotlight {
+    max-width: 400px;
+    display: flex;
+    border: 1px dashed gray;
+    padding: 10px;
+    margin-bottom: 5px;
+  }

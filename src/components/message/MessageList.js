@@ -22,9 +22,10 @@ export const MessageList = () => {
 
             })
     }
+
     const getMessages = () => {
         return getAllMessages()
-            .then(messagesFromAPI => {
+            .then(messagesFromAPI=> {
                 setMessages(messagesFromAPI)
             });
     };
@@ -48,14 +49,14 @@ export const MessageList = () => {
         <>
             <section className="section-content">
                 <button type="button"
-                    className="btn"
+                    className="button"
                     onClick={() => { history.push("/messages/create") }}>
-                    Send New Message
+                    Send Message
         </button>
             </section>
 
             <div className="container-cards">
-                {messages.map(message =>
+                {sent.map(message =>
                     <MessageCard
                         key={message.id}
                         message={message}
@@ -63,11 +64,11 @@ export const MessageList = () => {
             </div>
 
             <div className="container-cards">
-                {sent.map(sent =>
+                {messages.map(sentMessage =>
                
                     <SentCard
-                        key={sent.id}
-                        message={sent}
+                        key={sentMessage.id}
+                        message={sentMessage}
                         
                     />).reverse()}
             </div>

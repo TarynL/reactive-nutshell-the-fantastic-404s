@@ -15,3 +15,14 @@ export const deleteFriend = (id) => {
         method: "DELETE"
     }).then(result => result.json())
 };
+
+export const addNewFriend = (friend) => {
+    return fetch(`${remoteURL}/friends`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(friend)
+    })
+    .then(response => response.json())
+}

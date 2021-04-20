@@ -1,7 +1,8 @@
-import React from "react"
-import "./NavBar.css"
-import { Link, useHistory } from "react-router-dom"
-import "bootstrap/dist/css/bootstrap.min.css"
+import React from "react";
+import "./NavBar.css";
+import { Link, useHistory } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "../../images/logo.png";
 
 export const NavBar = (props) => {
 const history = useHistory();
@@ -14,7 +15,7 @@ const history = useHistory();
   return (
     <nav className="navbar">
       <div>
-      <img className="logo" src="../../images/logo.png" alt="logo"/>
+      <img className="logo" src={logo} alt="logo"/>
       </div>
       <div>
       <ul className="nav nav-pills nav-fill">
@@ -37,7 +38,7 @@ const history = useHistory();
           <Link className="nav-link" to="/events">Events</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" onClick={handleLogout}> Logout </Link>
+          <Link className="nav-link" onClick={handleLogout} to="/Login"> Logout </Link>
         </li>
       </ul>
       </div>

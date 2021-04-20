@@ -23,6 +23,7 @@ export const ArticleEditForm = () => {
 
         const editedArticle = {
             id: articleId,
+            userId: article.userId, 
             timestamp: article.timestamp,
             title: article.title,
             synopsis: article.synopsis,
