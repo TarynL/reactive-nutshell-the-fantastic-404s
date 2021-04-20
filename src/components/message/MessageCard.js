@@ -18,8 +18,8 @@ export const MessageCard = ({ message }) => {
 
     return (
         <div className="card">
-            <div className="card-content">
-                <h3>From: {userName}</h3>
+            <div className="card-content messages">
+                <h4>From: {userName}</h4>
                 <p>{message.timestamp}</p>
                 <p>Message: {message.message}</p>
                 

@@ -32,7 +32,7 @@ export const PrivateMessageEditForm = () => {
 
     const editedMessage = {
       id: message.id,
-      senderId:parseInt(sessionStorage.getItem("nutshell_user")),
+      senderId: parseInt(sessionStorage.getItem("nutshell_user")),
       userId: message.userId,
       message: message.message,
       timestamp: message.timestamp
@@ -74,12 +74,12 @@ console.log(editedMessage)
               />
               </div>
 
-          <div className="button">
+          <div className="buttonBox">
             <button
               type="button"
               disabled={isLoading}
               onClick={updateExistingMessage}
-              className="btn btn-primary">
+              className="button">
               Submit
             </button>
           </div>

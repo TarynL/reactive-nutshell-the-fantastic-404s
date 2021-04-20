@@ -66,7 +66,7 @@ export const PublicMessageEditForm = () => {
               type="button"
               disabled={isLoading}
               onClick={updateExistingMessage}
-              className="btn btn-primary">
+              className="button">
               Submit
             </button>
           </div>

@@ -41,14 +41,8 @@ export const MessageForm = () => {
     const handleClickSaveMessage = (evt) => {
         evt.preventDefault()
 
-        // const receiverId = message.receiverId
-
-        // if (receiverId === 0) {
-        //     window.alert("Please select receiver of message")
-        // } else {
             addMessage(message)
                 .then(() => history.push("/messages"))
-        // }
     }
 
     return (
@@ -75,7 +69,7 @@ export const MessageForm = () => {
                     <input type="text" id="message" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Message" value={message.message} />
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <button className="button"
 				onClick={handleClickSaveMessage}>
 				Send Message
           </button>

@@ -69,7 +69,7 @@ export const ArticleForm = () => {
 
            
 
-            <button className="button btn-primary"
+            <button className="button"
 				onClick={handleClickSaveArticle}>
 				Save Article
           </button>

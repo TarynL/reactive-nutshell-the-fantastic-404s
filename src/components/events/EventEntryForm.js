@@ -133,7 +133,7 @@ export const GetStatesForSelect = () => {
                         </select>
                     </fieldset>
                 </div>
-                <button id="saveEventConfirm" onClick={handleSaveEvent}>Confirm</button>
+                <button id="saveEventConfirm" className="button" onClick={handleSaveEvent}>Confirm</button>
             </form>
         </div>
     </>);
