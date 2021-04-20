@@ -1,77 +1,131 @@
 # Reactive Nutshell: The Information Dashboard
 
+## What is Reactive Nutshell?
+
+Nutshell is an app for people to use to organize their daily tasks, events, news article, friends, and chat messages.
+
+## Team Members
+
+Taryn Lytle, Dakota Upchurch, Jeremiah Schugt and Laurel Morrison
+
+## The Goal
+This group project's focus was to learn how to build a website with React. We were tasked with issue tickets from the "client" including:
+
+1. The user can add friends and see their friend's articles and events.
+1. The logged-in user is the only one with ability to edit/delete friends, events, messages (private and public) and tasks.
+1. Display today's weather on the homepage, and date-specific weather on the event cards. If it's too far in the future, then show today's with an error message.
+1. Be able to create task and have a checkbox that allows you to mark them complete.
+1. Private messages should be able to be sent directly to a friend, and only they can see it. 
+1. Public messages should be displayed on the dashboard and everyone can read them. 
+
+## Wireframe and ERD
+
+<img width="1221" alt="Screen Shot 2021-04-19 at 4 47 03 PM" src="https://user-images.githubusercontent.com/78938657/115434345-97653e00-a1d6-11eb-9c7d-0625e8ab2887.png">
+
+## Homepage view
+
+![Screen Shot 2021-04-20 at 12 49 07 PM](https://user-images.githubusercontent.com/78938657/115434603-e27f5100-a1d6-11eb-9293-584395263a1c.png)
+
 ## Setup: Follow these steps exactly
 
 1. Clone this repository
 1. `cd` into the directory it creates
-1. In the `api` directory, create a copy of the `database.json.example` and remove the `.example` extension.
+1. In the `api` directory, open Postman and enter the mock data below.
 1. Run `json-server -p 8088 -w database.json` from the `api` directory.
-1. Run `npm install` and wait for all dependencies to be installed.
+1. Run `npm install` from the root directory and wait for all dependencies to be installed.
 1. Run `npm start` to verify that installation was successful.
 
-> **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
+## Mock data
 
-## What is Reactive Nutshell?
-
-Nutshell is a new product offering that you have been tasked with building. It's an app for people to use to organize their daily tasks, events, news article, friends, and chat messages.
-
-You will be using the React library to build out this application.
-
-To start you off, here's an example of what some of the resources in your API should look like once it's populated with some data from your application.
-
-### Users
-
-```json
-{ "id": 1, "name": "Steve Brownlee", "email": "me@me.com" }
-```
-
-### Friends
-
-```json
-{ "id": 1, "userId": 1, "currentUserId": 3 }
-```
-
-### News Articles
-
-```json
-{
-    "id": 1,
-    "userId": 2,
-    "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-    "title": "Wormholes Allow Information to Escape Black Holes",
-    "synopsis": "Check out this recent discovery about workholes",
-    "timestamp": "2021-02-11T15:24"
+```{
+  "users": [
+    {
+      "id": 1,
+      "name": "Reed Richards",
+      "email": "mister@fantastic.com"
+    },
+    {
+      "id": 2,
+      "name": "Susan Storm",
+      "email": "invisible@woman.com"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "timestamp": 1618925984327,
+      "userId": 2,
+      "title": "Marvel Shows Why HUMAN TORCH is The Most Underrated Hero!",
+      "synopsis": "Johnny Storm may be seen as the carefree member of the Fantastic Four, but the Human Torch has more respect for his power than his own teammates!",
+      "image": "https://media.giphy.com/media/kgyLlpe3YCkmI/giphy.gif",
+      "url": "https://screenrant.com/marvel-human-torch-underrated-hero/"
+    },
+    {
+      "id": 2,
+      "timestamp": 1618925905362,
+      "title": "Marvel: 10 Things Everyone Forgets About The Thing",
+      "synopsis": "The Thing may be one of the founding members of the Fantastic Four, but there are a lot of things everyone forgets about this Marvel hero.",
+      "url": "https://www.cbr.com/marvel-the-thing-easter-eggs/",
+      "image": "https://media.giphy.com/media/6hhqGnU2V3wIw/giphy.gif",
+      "userId": 2
+    }
+  ],
+  "messages": [
+    {
+      "id": 3,
+      "userId": 2,
+      "senderId": 1,
+      "message": "hi",
+      "timestamp": "10:58"
+    },
+    {
+      "userId": 2,
+      "senderId": 1,
+      "message": "How are you?",
+      "timestamp": "13:15",
+      "id": 20
+    }
+  ],
+  "publicMessages": [
+    {
+      "userId": 2,
+      "message": "Hi",
+      "timestamp": "13:15",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "message": "hey friends",
+      "timestamp": "11:15"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 2,
+      "name": "Fly around",
+      "date": "07-09-2021",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Save the world",
+      "date": "05-21-2021",
+      "completed": true
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "userId": 1,
+      "currentUserId": 2
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "currentUserId": 1
+    }
+  ]
 }
-```
-
-## Professional Requirements
-
-1. All teammates must use React and JSON-server. 
-1. Each module should have a comment at the top with the following info: author(s) and purpose of module
-1. The README for your project should include instructions on how another person can download and run the application
-1. An ERD showing the database relationships. A screenshot/image should be included on your README.
-
-## A Note About Authentication
-
-We want you to know that the login and registration code we have given you is fake, completely insecure, and would never be implemented in a professional application. It is a simulation authentication using very simplistic tools, because authentication is not a learning objective of students at NSS.
-
-You will be using [session storage](https://javascript.info/localstorage#sessionstorage) to keep track of which user has logged into Nutshell. You need to read the code in the **`Login.js`** and **`Register.js`** components so that you see what is going on, but you do not need to change it.
-
-## Keep in mind some tips for a good usable app
-1. Use acceptable conventions
-   * Logo positioned at top left
-   * Navigation across the top or down the left side
-2. Visual hierarchy
-   * Most important information is the most prominent
-3. Break pages up into defined sections
-   * Logically related content should be related visually
-4. That which is clickable should be obviously clickable.
-5. Eliminate distractions
-   * Use only two typefaces
-   * Limit color pallet (3 colors with black and white)
-   * Use a grid
-6. Support scanning (users don't read)
-   * Use plenty of headings
-   * Short paragraphs
-   * Bulleted lists
-7. Strive for consistency.
