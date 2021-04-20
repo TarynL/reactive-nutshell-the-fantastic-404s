@@ -2,3 +2,34 @@
   min-width: 15rem;
   min-height: 5rem;
 }
+
+
+.loginButton{
+  background-color: #FBEFDD;
+  border: solid 2px #AE4722;
+  margin: 5px;
+}
+
+.registerButton{
+  background-color: #FBEFDD;
+  border: solid 2px #AE4722;
+  margin: 10px;
+}
+
+/* .submitButtonSection{
+  display: flex;
+  align-items: flex-start;
+} */
+
+.form-control{
+  width: 300px;
+}
+
+.emailInput{
+  display: flex;
+  margin: 3px 0px 20px 0px;
+}
+
+.form--login{
+  text-align: left;
+}

@@ -53,7 +53,7 @@ export const ArticleList = () => {
     <>
       <section className="section-content">
         <button type="button"
-          className="btn"
+          className="button addArticle"
           onClick={() => { history.push("/articles/create") }}>
           Add Article
         </button>

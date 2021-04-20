@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react"
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css"
+import { Footer } from "../nav/footer"
+import logo from "../../images/logo.png"
 
 
 export const Login = () => {
@@ -44,30 +46,36 @@ export const Login = () => {
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
             </dialog>
+
             <section>
+                <nav className="navbar">
+                    <div>
+                        <img className="logo" src={logo} alt="logo" />
+                    </div>
+                </nav>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nutshell</h1>
-                    <h2>Please sign in</h2>
+                    <h1>Please sign in</h1>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            id="email"
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus
-                            value={loginUser.email}
-                            onChange={handleInputChange} />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
+                        <div className="emailInput">
+                            <input type="email"
+                                id="email"
+                                className="form-control"
+                                placeholder="Email address"
+                                required autoFocus
+                                value={loginUser.email}
+                                onChange={handleInputChange} />
+                            <button type="submit" className="loginButton">
+                                Sign in
                         </button>
+                        </div>
                     </fieldset>
                 </form>
             </section>
             <section className="link--register">
                 <Link to="/register">Register for an account</Link>
             </section>
+            <Footer />
         </main>
     )
 }

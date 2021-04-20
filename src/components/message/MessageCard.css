@@ -1,6 +1,8 @@
-.messages{
-    border: 2px solid #AE4722;
-    width: 300px;
+h1 {
+    font-family: 'Roboto', sans-serif;}
+
+body {
+    font-family: sans-serif;
 }
 
 .btn {

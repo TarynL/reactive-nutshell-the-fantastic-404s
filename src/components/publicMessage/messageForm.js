@@ -45,7 +45,7 @@ export const PublicMessageForm = ({getMessages}) => {
             <label htmlFor="message">
                 <input type="text" id="message" className="addMessage" value={message.message} placeholder="add message" onChange={handleControlledInputChange} />
             </label>
-            <button type="button" className="button" disabled={isLoading} onClick={handleClickSaveMessage}>Send</button>
+            <button type="button" className="PMbutton" disabled={isLoading} onClick={handleClickSaveMessage}>Send</button>
         </div>
     )
 }

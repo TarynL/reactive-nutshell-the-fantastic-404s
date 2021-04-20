@@ -37,8 +37,7 @@ export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
                         </span></h3>
                         <p>Date: {date}</p>
                         <p>Synopsis: {article.synopsis}</p>
-                        <a href={article.url}>URL: {article.url}</a>
-
+                        <p>Link: <a href={article.url}> {article.url}</a></p>
                     </div>
                 </div>
 }
