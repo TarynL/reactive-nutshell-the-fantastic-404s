@@ -3,11 +3,13 @@
     display: flex;
     border: 1px dashed gray;
     padding: 10px;
+    margin: 10px;
   }
   
   .article-spotlight img {
     width: 200px;
     margin-right: 20px;
+    margin-bottom: 10px;
   }
   
   .article-spotlight p {
@@ -15,6 +17,7 @@
   }
 
   .articleImage{
-    height: 200px;
+    height: 300px;
     width: 150px;
+    object-fit: cover;
   }

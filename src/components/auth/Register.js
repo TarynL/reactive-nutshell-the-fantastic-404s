@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom";
-
+import logo from "../../images/logo.png"
 import "./Login.css"
+import { Footer } from "../nav/footer"
+
 
 export const Register = () => {
 
@@ -64,24 +66,31 @@ export const Register = () => {
                 <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
             </dialog>
 
+            <nav className="navbar">
+                    <div>
+                        <img className="logo" src={logo} alt="logo" />
+                    </div>
+                </nav>
+
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
+                    <label htmlFor="firstName"> First Name: </label>
                     <input type="text" name="firstName" id="firstName" className="form-control" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
+                    <label htmlFor="lastName"> Last Name: </label>
                     <input type="text" name="lastName" id="lastName" className="form-control" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputEmail"> Email address </label>
+                    <label htmlFor="inputEmail"> Email address: </label>
                     <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
                 </fieldset>
-                <fieldset>
-                    <button type="submit"> Sign in </button>
+                <fieldset className="submitButtonSection">
+                    <button type="submit" className="registerButton"> Sign in </button>
                 </fieldset>
             </form>
+            <Footer />
         </main>
     )
 }
