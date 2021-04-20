@@ -12,34 +12,7 @@ body {
 
 .btn:hover{
     background-color: #AE4722;
-
 }
-
-/* .MessageSection{
-    display: flex;
-    justify-content: space-between;
-}
-
-.containerCards{
-    width: 50%
-
-}
-
-.sentMessages{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
-.incomingMessages{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.messages{
-    overflow-wrap: break-word;
-} */
-
 
 .grid-container {
     display: grid;

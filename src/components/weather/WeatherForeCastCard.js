@@ -16,7 +16,7 @@ export const GetHomeWeather = () => {
     console.log(weather, "weather")
     return (<>
         <section className="item5_weather">
-            <div className="header"><h3>Today's Weather </h3></div>
+            <div className="header"><h3><strong>Today's Weather </strong></h3></div>
             <div className="homeWeather">{weather}</div>
         </section>
 

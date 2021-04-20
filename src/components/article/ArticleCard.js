@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 
 export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
     const history = useHistory();
-    
-    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(article.timestamp)
+
+    let date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(article.timestamp)
     return (
         <>
             {loggedInUser === article.userId ?
@@ -13,19 +13,19 @@ export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
                 <div className="card">
                     <div className="card-content">
 
-                        <h3>Article Title: <span className="card-title">
+                        <h3>Title: <span className="card-title">
                             {article.title}
                         </span></h3>
                         <p>Date: {date}</p>
                         <p>Synopsis: {article.synopsis}</p>
                         <a href={article.url}>URL: {article.url}</a>
-
-                        <button type="button"
-                            onClick={() => history.push(`/articles/${article.id}/edit`)}>
-                            Edit
-                </button>
-                        <button type="button" onClick={() => handleDeleteArticle(article.id)}>Delete</button>
-
+                        <div>
+                            <button type="button"
+                                onClick={() => history.push(`/articles/${article.id}/edit`)}>
+                                Edit
+                                 </button>
+                            <button type="button" onClick={() => handleDeleteArticle(article.id)}>Delete</button>
+                        </div>
                     </div>
                 </div> :
 
@@ -40,8 +40,8 @@ export const ArticleCard = ({ article, handleDeleteArticle, loggedInUser }) => {
                         <p>Link: <a href={article.url}> {article.url}</a></p>
                     </div>
                 </div>
-}
-</>   
-)
-    
+            }
+        </>
+    )
+
 }
