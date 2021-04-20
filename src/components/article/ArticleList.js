@@ -7,7 +7,7 @@ import { getAllFriends, getFriendsById } from '../../modules/FriendManager';
 
 
 export const ArticleList = () => {
-  let [newArray, setNewArray] = useState([])
+ 
   const [articles, setArticles] = useState([]);
   const history = useHistory();
 
@@ -24,18 +24,16 @@ export const ArticleList = () => {
     
     const getArticles = (array) => {
       let artArr = []
-    const urlArray = array.map(userId => {
-      return (
-        getArticlesByUserId(userId).then(response => {return response}))})
+      const urlArray = array.map(userId => {
+      return (getArticlesByUserId(userId).then(response => {return response}))})
         Promise.all(urlArray).then(
-        response => {return response.map(arr => {return arr.forEach(obj => {return (obj)})})
-        
-          
-        })}
+        response => { response.map(arr => {arr.forEach(obj => {artArr.push(obj)})})
+      setArticles(artArr)})
+      }
         
  
         useEffect (() => {
-          getFriends().then(response => {getArticles(response)}).then(results => {console.log(results)})
+          getFriends().then(response => {getArticles(response)})
         }, [])
         
        
@@ -44,8 +42,7 @@ export const ArticleList = () => {
           
           const handleDeleteArticle = (id) => {
             deleteArticle(id)
-            .then(() => getArticles()
-            .then(setArticles));
+            .then(() => getFriends().then(response => {getArticles(response)}))
           };
 
 
