@@ -22,11 +22,19 @@ body {
     color: #FBEFDD; 
 }
 
-a {
-    color: #AE4722;
-    text-decoration: none;
-    background-color: transparent;
+.nav-link:hover{
+    color: #AE4722; 
 }
+
+.nav-link:active{
+    color: #AE4722; 
+    font-style: underline;
+}
+
+button:hover {
+    background-color: #AE4722;
+    color: #FBEFDD
+  }
 
 .footer{
     background-color: #525A7C;

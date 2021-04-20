@@ -38,12 +38,17 @@ body {
 
 }
 
-.button.pmButton{
+.PMbutton{
     background-color: #AE4722;
     color: #FBEFDD;
     width: 100px;
     margin: 5px;
 }
+
+.PMbutton:hover {
+    background-color: #525A7C;
+    color: #FBEFDD
+  }
 
 .buttonBox{
     display: flex;
@@ -104,3 +109,22 @@ body {
     padding: 5px;
     width: 90%;
 }
+
+.button {
+    background-color: #FBEFDD;
+    border: #AE4722 2px solid;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    padding: .5em;
+    border-radius: 2px;
+    margin: .5em;
+    width: 120px;
+  }
+  
+  button:hover {
+    background-color: #AE4722;
+    color: #FBEFDD
+  }

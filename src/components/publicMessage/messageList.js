@@ -68,11 +68,6 @@ export const MessageList = () => {
             <section className="newMessage">
                 <PublicMessageForm getMessages={getMessages} />
                 
-                {/* <button type="button"
-                    className="button"
-                    onClick={() => { history.push("/messages/public/create") }}>
-                    Send New Message
-                 </button> */}
             </section>
             <div>
                 <a className="read-more-link" onClick={()=>{setReadMore(!readMore)}}><p>{linkName}</p></a>

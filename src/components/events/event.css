@@ -5,14 +5,6 @@ body {
     font-family: sans-serif;
 }
 
-/* :root{
-    --num: 255;
-    --blue: 255;
-    --min: rgba(0,0,255,.4);
-    --max: rgba(255,0,0,.4);
-    align-items: center;
-
-} */
 #eventForm {
     border: 3px solid black;
     width: fit-content;
@@ -49,13 +41,9 @@ form button {
     flex-basis: 25%;
     
 }
-/* #weather img {
-    width: 120px;
-    height: 120px;
-} */
+
+
 .weatherDay{
-    /* background: rgb(2,0,36); */
-    /* background: linear-gradient(31deg, rgba(2,0,36,.1) 0%, rgba(9,9,121,0.4) 20%, rgba(255,0,70,1) 95%); */
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -67,11 +55,6 @@ form button {
     flex-direction: row;
     align-content: space-between;
 }
-
-/* .am_pm {
-    font-size: 3em;
-    align-content: right;
-} */
 
 .card {
     display: flex;
@@ -88,10 +71,6 @@ form button {
     flex-direction: row;
 }
 
-/* .eventButtons button {
-    max-width: fit-content;
-} */
-
 .cardList {
     display: flex;
     align-items: center;
@@ -102,22 +81,3 @@ form button {
     width: 80px;
     height: 80px;
 }
-/* 
-.eventButton{
-    background-color: #FBEFDD;
-    border: #AE4722 2px solid;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    padding: .5em;
-    border-radius: 2px;
-    margin: .5em;
-    width: 20%;
-  }
-  
-  .a {
-    background-color: #AE4722;
-    color: #FBEFDD
-} */
