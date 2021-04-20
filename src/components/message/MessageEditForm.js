@@ -37,7 +37,6 @@ export const PrivateMessageEditForm = () => {
       message: message.message,
       timestamp: message.timestamp
     };
-console.log(editedMessage)
     updatePrivateMessage(editedMessage)
     .then(() => history.push("/messages"));
   };

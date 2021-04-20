@@ -7,9 +7,8 @@ import { stateNames } from "./EventEntryForm"
 export const EditEvent = () => {
     const { eventId } = useParams()
     const history = useHistory()
-    const [isLoading, setIsLoading] = useState(false)
     const [event, setEvent] = useState({})
-    const [states, setStates] = useState([...stateNames])
+    const [states] = useState([...stateNames])
 
     useEffect(() => {
         getEventById(eventId).then((eventFromApi) => {
@@ -42,11 +41,8 @@ export const EditEvent = () => {
 
     // This maps over an array of states and removes Select State and the current state from the list
     const selectStates = states.map((state, index) => {
-        if(state === "Select State"|| state===event.state){
 
-        } else{
             return <option key={index} id={"state__" + index}>{state}</option>
-        }
     })
 
     return (<>

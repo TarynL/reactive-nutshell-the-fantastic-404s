@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getWeatherByDay } from "../../modules/WeatherManager"
 import { showWeatherSingleDay } from "./WeatherList"
-import { WeatherCard } from "./WeatherCard"
 import '../home.css'
 
 export const GetHomeWeather = () => {
@@ -13,7 +12,6 @@ export const GetHomeWeather = () => {
     useEffect(() => {
         getWeather();
     }, [])
-    console.log(weather, "weather")
     return (<>
         <section className="item5_weather">
             <div className="header"><h3><strong>Today's Weather </strong></h3></div>

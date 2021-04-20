@@ -81,3 +81,12 @@ form button {
     width: 80px;
     height: 80px;
 }
+
+.firstEvent div{
+    background-color: cornsilk;
+}
+
+.firstEvent h3 {
+    font-size: 4em;
+    color: #991f00;
+}

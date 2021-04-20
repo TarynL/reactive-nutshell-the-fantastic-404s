@@ -1,7 +1,7 @@
 
 
 export const getEventsForUser = (userId) => {
-    return fetch(`http://localhost:8088/events?userId=${userId}`).then(res => res.json())
+    return fetch(`http://localhost:8088/events?${userId}&_expand=user`).then(res => res.json())
 }
 
 export const deleteEventById = (id) => {
@@ -23,8 +23,8 @@ export const saveEvent = (newEvent) => {
 }
 
 export const updateEvent = (eventUpdate) => {
-    return fetch(`http://localhost:8088/events/${eventUpdate.id}`,{
-        method:"PUT",
+    return fetch(`http://localhost:8088/events/${eventUpdate.id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
@@ -35,4 +35,9 @@ export const updateEvent = (eventUpdate) => {
 
 export const getEventById = (id) => {
     return fetch(`http://localhost:8088/events/${id}`).then(res => res.json())
+}
+
+export const getFriendsOfCurrentUser = (id) => {
+    return fetch(`http://localhost:8088/friends?currentUserId=${id}`)
+        .then(res => res.json()).then(parsedResponse =>{return parsedResponse})
 }

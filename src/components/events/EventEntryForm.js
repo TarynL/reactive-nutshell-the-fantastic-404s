@@ -66,7 +66,6 @@ export const stateNames = [
 ]
 
 export const GetStatesForSelect = () => {
-    let date = new Date();
     const history = useHistory()
     const [states, setStates] = useState([])
     const [event, setEvent] = useState({
