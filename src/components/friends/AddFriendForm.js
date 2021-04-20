@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { addFriend } from '../../modules/FriendManager';
+import { addNewFriend } from '../../modules/FriendManager';
 import { getUserByName } from '../../modules/UserManager';
 
 
@@ -32,7 +32,7 @@ export const AddFriendForm = () => {
             console.log(result)
             let friendToBeAdded = { userId: result[0].id, currentUserId: parseInt(sessionStorage.getItem("nutshell_user")) }
             console.log(friendToBeAdded)
-            addFriend(friendToBeAdded).then(() => history.push("/friends"))
+            addNewFriend(friendToBeAdded).then(() => history.push("/friends"))
         })
     }
 
